@@ -2,6 +2,9 @@
   command = "npm run build"
   publish = "build"
 
+[build.environment]
+  # Set environment variables needed for your backend
+  GOOGLE_APPLICATION_CREDENTIALS = "our-access-404113-ba8e70863a01.json"
+
 [functions]
   directory = "netlify/functions"
-  node_bundler = "esbuild"
