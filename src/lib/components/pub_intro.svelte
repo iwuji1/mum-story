@@ -1,22 +1,7 @@
 <script>
-  import { onMount } from 'svelte';
-  let people;
-  let data = null;
-  let questions;
+  export let data;
 
-  onMount(async () => {
-    try {
-      const response = await fetch('/.netlify/functions/queryResults');
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        questions = data;
-        people = data[0].length;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  })
+  console.log(data)
 
 </script>
 

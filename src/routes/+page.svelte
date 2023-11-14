@@ -12,12 +12,26 @@
   import Pintro from '$lib/components/pub_intro.svelte'
   import Fetcher from '$lib/components/DataFetcher.svelte'
 
-  export let data;
-  export let people;
+  let people;
+  let data = null;
+  let questions;
+
+  onMount(async () => {
+    try {
+      const response = await fetch('/.netlify/functions/queryResults');
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        questions = data;
+        people = data[1].length;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  })
 
   console.log(data)
   console.log(people)
-
 
 </script>
 
@@ -98,7 +112,7 @@
   <BHM />
   <She />
   <Fam />
-  <Pintro />
+  <Pintro data={data} count={people}/>
   <She />
 
 
