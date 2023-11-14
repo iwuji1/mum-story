@@ -9,7 +9,7 @@ export async function load() {
       }
       const data = await response.json();
       console.log(data);
-      const people = data[0].length;
+      const people = data[1].length;
 
       return {
         data,

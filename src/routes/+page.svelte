@@ -13,8 +13,10 @@
   import Fetcher from '$lib/components/DataFetcher.svelte'
 
   export let data;
+  export let people;
 
   console.log(data)
+  console.log(people)
 
 
 </script>
