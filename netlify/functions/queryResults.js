@@ -1,8 +1,8 @@
 const { BigQuery } = require('@google-cloud/bigquery');
-
 const projectID = 'our-access-404113';
+const bigquery = new BigQuery();
 
-const bigquery = new BigQuery({ projectID });
+// require('dotenv').config();
 
 exports.handler = async function (event, context) {
   try {
