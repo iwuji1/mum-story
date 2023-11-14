@@ -1,4 +1,6 @@
 // src/routes/[page-name].js
+
+/** @type {import('./$types').PageServerLoad} */
 export async function load() {
   try {
     const response = await fetch('/.netlify/functions/queryResults');
