@@ -5,83 +5,83 @@
   let questions;
 
   onMount(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const swipes = document.querySelector(".side-blocks");
-    const charts = gsap.utils.toArray('.chart-block');
-    const texts = gsap.utils.toArray(".anim");
-
-    gsap.to(charts, {
-      xPercent: -100 * (charts.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".side-blocks",
-        start:"top 40%",
-        pin: true,
-        scrub: 1,
-        snap: 1 / (charts.length - 1),
-        end: () => "+=" + document.querySelector(".side-blocks").offsetWidth,
-      }
-    })
-
-    // function getScrollAmount() {
-    //   let chartsWidth = swipes.scrollWidth;
-    //   return -(chartsWidth - window.innerWidth);
-    // }
-
-    // const tween = gsap.to(swipes, {
-    //   x: getScrollAmount,
-    //   duration: 3,
-    //   ease: "none",
-    // });
-
-    // let scrollTween = gsap.to(charts, {
-    //   xPercent: -100 * (charts.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger:".charts-wrapper",
-    //     pin:true,
-    //     scrub: 1,
-    //     end: "+=3000",
-    //     markers:true,
-    //   }
-    // });
-
-    // ScrollTrigger.create({
-    //   trigger:".side-blocks",
-    //   start:"center 70%",
-    //   end: () => `+=${getScrollAmount() * -1}`,
-    //   pin:".side-blocks",
-    //   animation:tween,
-    //   scrub:1,
-    //   invalidateOnRefresh:true,
-    //   markers:true
-    // })
-
-    // // whizz around the sections
-    // sections.forEach((section) => {
-    //   // grab the scoped text
-    //   let text = section.querySelectorAll(".anim");
-    //   // bump out if there's no items to animate
-    //   if(text.length === 0)  return
-    //   // do a little stagger
-    //   gsap.from(text, {
-    //     y: -130,
-    //     opacity: 0,
-    //     duration: 2,
-    //     ease: "elastic",
-    //     stagger: 0.1,
-    //     scrollTrigger: {
-    //       trigger: section,
-    //       containerAnimation: scrollTween,
-    //       start: "left center",
-    //       markers: true
-    //     }
-    //   });
-    // });
-
-
-  },
+  //   gsap.registerPlugin(ScrollTrigger);
+  //
+  //   const swipes = document.querySelector(".side-blocks");
+  //   const charts = gsap.utils.toArray('.chart-block');
+  //   const texts = gsap.utils.toArray(".anim");
+  //
+  //   // gsap.to(charts, {
+  //   //   xPercent: -100 * (charts.length - 1),
+  //   //   ease: "none",
+  //   //   scrollTrigger: {
+  //   //     trigger: ".side-blocks",
+  //   //     start:"top 40%",
+  //   //     pin: true,
+  //   //     scrub: 1,
+  //   //     snap: 1 / (charts.length - 1),
+  //   //     end: () => "+=" + document.querySelector(".side-blocks").offsetWidth,
+  //   //   }
+  //   // })
+  //
+  //   // function getScrollAmount() {
+  //   //   let chartsWidth = swipes.scrollWidth;
+  //   //   return -(chartsWidth - window.innerWidth);
+  //   // }
+  //
+  //   // const tween = gsap.to(swipes, {
+  //   //   x: getScrollAmount,
+  //   //   duration: 3,
+  //   //   ease: "none",
+  //   // });
+  //
+  //   // let scrollTween = gsap.to(charts, {
+  //   //   xPercent: -100 * (charts.length - 1),
+  //   //   ease: "none",
+  //   //   scrollTrigger: {
+  //   //     trigger:".charts-wrapper",
+  //   //     pin:true,
+  //   //     scrub: 1,
+  //   //     end: "+=3000",
+  //   //     markers:true,
+  //   //   }
+  //   // });
+  //
+  //   // ScrollTrigger.create({
+  //   //   trigger:".side-blocks",
+  //   //   start:"center 70%",
+  //   //   end: () => `+=${getScrollAmount() * -1}`,
+  //   //   pin:".side-blocks",
+  //   //   animation:tween,
+  //   //   scrub:1,
+  //   //   invalidateOnRefresh:true,
+  //   //   markers:true
+  //   // })
+  //
+  //   // // whizz around the sections
+  //   // sections.forEach((section) => {
+  //   //   // grab the scoped text
+  //   //   let text = section.querySelectorAll(".anim");
+  //   //   // bump out if there's no items to animate
+  //   //   if(text.length === 0)  return
+  //   //   // do a little stagger
+  //   //   gsap.from(text, {
+  //   //     y: -130,
+  //   //     opacity: 0,
+  //   //     duration: 2,
+  //   //     ease: "elastic",
+  //   //     stagger: 0.1,
+  //   //     scrollTrigger: {
+  //   //       trigger: section,
+  //   //       containerAnimation: scrollTween,
+  //   //       start: "left center",
+  //   //       markers: true
+  //   //     }
+  //   //   });
+  //   // });
+  //
+  //
+  // },
 
   async () => {
     try {
@@ -96,7 +96,7 @@
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  })
+  }})
 
 </script>
 

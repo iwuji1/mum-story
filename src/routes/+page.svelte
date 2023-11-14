@@ -12,6 +12,10 @@
   import Pintro from '$lib/components/pub_intro.svelte'
   import Fetcher from '$lib/components/DataFetcher.svelte'
 
+  export let prop;
+
+  console.log(prop)
+
 
 </script>
 
