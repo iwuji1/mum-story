@@ -44,7 +44,7 @@ const Vbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let xDomain;
   let xScale;
   let yScale;
-  const data = [
+  const data2 = [
     { "age": "16-19", "percentage": 1 },
     { "age": "20-24", "percentage": 6 },
     { "age": "25-29", "percentage": 10 },
@@ -65,20 +65,20 @@ const Vbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$5);
   innerHeight = height$1 - margin.top - margin.bottom;
   innerWidth = width$1 - margin.left - margin.right;
-  xDomain = data.map(function(d) {
+  xDomain = data2.map(function(d) {
     return d.age;
   });
-  data.map(function(d) {
+  data2.map(function(d) {
     return d.percentage;
   });
   xScale = scaleBand().domain(xDomain).range([0, innerWidth]).padding(0.1);
   yScale = scaleLinear().domain([
     0,
-    max(data, function(d) {
+    max(data2, function(d) {
       return d.percentage;
     })
   ]).range([innerHeight, 0]);
-  return `<svg class="vbar svelte-os3ttl">${each(data, (d) => {
+  return `<svg class="vbar svelte-os3ttl">${each(data2, (d) => {
     return `<text class="chart-txt svelte-os3ttl" text-anchor="middle"${add_attribute("x", xScale(d.age) + xScale.bandwidth() / 2, 0)} dy=".3em"${add_attribute("y", innerHeight + 10, 0)}>${escape(d.age)}</text> <rect class="bars svelte-os3ttl"${add_attribute("x", xScale(d.age), 0)}${add_attribute("y", yScale(d.percentage), 0)}${add_attribute("width", xScale.bandwidth(), 0)}${add_attribute("height", yScale(0) - yScale(d.percentage), 0)} fill="#ee3423"></rect>`;
   })}</svg>`;
 });
@@ -95,7 +95,7 @@ const Hbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let yDomain;
   let yScale;
   let cScale;
-  const data = [
+  const data2 = [
     {
       "Ethnic_group": "Asian/ Asian British",
       "couple_parents": 12,
@@ -131,29 +131,29 @@ const Hbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$4);
   innerHeight = height - margin.top - margin.bottom;
   innerWidth = width - margin.left - margin.right;
-  data.map(function(d) {
+  data2.map(function(d) {
     return d.couple_parents;
   });
-  data.map(function(d) {
+  data2.map(function(d) {
     return d.single_parents;
   });
-  yDomain = data.map(function(d) {
+  yDomain = data2.map(function(d) {
     return d.Ethnic_group;
   });
   yScale = scaleBand().domain(yDomain).range([0, innerHeight]).padding(0.1);
   cScale = scaleLinear().domain([
     0,
-    max(data, function(d) {
+    max(data2, function(d) {
       return d.couple_parents;
     })
   ]).range([0, innerWidth]);
   scaleLinear().domain([
     0,
-    max(data, function(d) {
+    max(data2, function(d) {
       return d.single_parents;
     })
   ]).range([0, innerWidth]);
-  return `<svg class="hbar svelte-f0alx6">${each(data, (d) => {
+  return `<svg class="hbar svelte-f0alx6">${each(data2, (d) => {
     return `<text class="chart-txt svelte-f0alx6" text-anchor="start" x="0" dy=".3em"${add_attribute("y", yScale(d.Ethnic_group) + yScale.bandwidth() / 2, 0)}>${escape(d.Ethnic_group)}</text> <rect class="cbars svelte-f0alx6"${add_attribute("id", d.Ethnic_group, 0)} x="0"${add_attribute("y", yScale(d.Ethnic_group), 0)}${add_attribute("width", cScale(d.couple_parents), 0)}${add_attribute("height", yScale.bandwidth() / 2, 0)} fill="#ee3423"></rect> <rect class="cbars svelte-f0alx6"${add_attribute("id", d.Ethnic_group, 0)} x="0"${add_attribute("y", yScale(d.Ethnic_group) + yScale.bandwidth() / 2, 0)}${add_attribute("width", cScale(d.single_parents), 0)}${add_attribute("height", yScale.bandwidth() / 2, 0)} fill="#2f9744"></rect>`;
   })}</svg>`;
 });
@@ -163,7 +163,7 @@ const css$3 = {
   map: null
 };
 const Pgrid = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const data = [
+  const data2 = [
     { "role": "mother" },
     { "role": "mother" },
     { "role": "mother" },
@@ -176,7 +176,7 @@ const Pgrid = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     { "role": "farther" }
   ];
   $$result.css.add(css$3);
-  return `<div class="sqre svelte-1saeqhq">${each(data, (d) => {
+  return `<div class="sqre svelte-1saeqhq">${each(data2, (d) => {
     return `<svg class="svelte-1saeqhq"><g><path class="${escape(null_to_empty(d.role), true) + " svelte-1saeqhq"}" d="M52.65,125.2h19.9c3.3,0,6-2.7,6-6V86.301h3.399c3.301,0,6-2.701,6-6V43.2c0-3.3-2.699-6-6-6H43.25c-3.3,0-6,2.7-6,6
         		v37.101c0,3.299,2.7,6,6,6h3.4V119.2C46.65,122.5,49.25,125.2,52.65,125.2z"></path><circle class="${escape(null_to_empty(d.role), true) + " svelte-1saeqhq"}" cx="62.55" cy="15.7" r="15.7"></circle></g></svg>`;
   })}</div>`;
@@ -192,22 +192,29 @@ const Family = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const pub_intro_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: '.t-container.svelte-1dfe6f3.svelte-1dfe6f3{display:flex;width:100vw;align-items:center;justify-content:center;flex-direction:column;text-align:justify;margin:20px auto;font-family:"helvetica";background-color:#ffd502}.text-block.svelte-1dfe6f3.svelte-1dfe6f3{padding:20px 40px 0px;max-width:700px}.text-block.svelte-1dfe6f3 h1.svelte-1dfe6f3{color:#2f9744;text-transform:uppercase}.text-block.svelte-1dfe6f3 h2.svelte-1dfe6f3{text-align:center;background-color:#000000;color:#ffffff;margin-left:15%;margin-right:15%;padding-top:2%;padding-bottom:2%;font-size:5rem}.chart-block.svelte-1dfe6f3.svelte-1dfe6f3{padding:20px 40px 0px;max-width:700px}.chart-block.svelte-1dfe6f3 h1.svelte-1dfe6f3{text-align:left;color:#2f9744;text-transform:uppercase;font-size:2rem}',
+  code: '.t-container.svelte-16y5i2u.svelte-16y5i2u{display:flex;width:100vw;align-items:center;justify-content:center;flex-direction:column;text-align:justify;margin:20px auto;font-family:"helvetica";background-color:#ffd502}.text-block.svelte-16y5i2u.svelte-16y5i2u{padding:20px 40px 0px;max-width:700px}.text-block.svelte-16y5i2u h1.svelte-16y5i2u{color:#2f9744;text-transform:uppercase}.text-block.svelte-16y5i2u h2.svelte-16y5i2u{text-align:center;background-color:#000000;color:#ffffff;margin-left:15%;margin-right:15%;padding-top:2%;padding-bottom:2%;font-size:5rem}.side-blocks.svelte-16y5i2u.svelte-16y5i2u{width:400%;height:100vh;display:flex;flex-wrap:nowrap}.chart-block.svelte-16y5i2u.svelte-16y5i2u{width:100vw}.chart-block.svelte-16y5i2u h1.svelte-16y5i2u{text-align:left;color:#2f9744;text-transform:uppercase;font-size:2rem}',
   map: null
 };
 const Pub_intro = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let people;
+  let { data: data2 } = $$props;
+  console.log(data2);
+  if ($$props.data === void 0 && $$bindings.data && data2 !== void 0)
+    $$bindings.data(data2);
   $$result.css.add(css$1);
-  return `<div class="t-container svelte-1dfe6f3"><div class="text-block svelte-1dfe6f3" data-svelte-h="svelte-1wbrv14"><h1 class="svelte-1dfe6f3">To Our Sisters</h1> <p>It&#39;s an opportunity to shout out the amazing work done by amazing women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children&#39;s persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but also curious to see how view points differ as you grow up and live in different seasons of your life</p></div> <div class="text-block svelte-1dfe6f3"><p data-svelte-h="svelte-afruv8">So I surveyed</p> <h2 class="svelte-1dfe6f3">${escape(people)} people</h2> <p data-svelte-h="svelte-8i0119">All in different communities from both single parent and couple parent house holds to see the impact of their mother in their life. I asked them 3 questions:</p> <p data-svelte-h="svelte-ebsjmp">Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p> <p data-svelte-h="svelte-1dcqhej">On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life</p> <p data-svelte-h="svelte-gk7xto">Write a quick lesson learned from your mum</p> <p data-svelte-h="svelte-8xhshp"></p></div> <div class="text-block svelte-1dfe6f3" data-svelte-h="svelte-y7kg84"><h1 class="svelte-1dfe6f3">Breaking down the respondents</h1> <p>Before we get into what the people are saying it&#39;s important to get a good idea about who is actually responding here to give you a better context to our responses</p> <h2 class="svelte-1dfe6f3">Comming Soon</h2> </div> <div class="chart-block svelte-1dfe6f3" data-svelte-h="svelte-19imomh"><h1 class="svelte-1dfe6f3">Breaking down the responses by ethnic background we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-1dfe6f3" data-svelte-h="svelte-1096573"><h1 class="svelte-1dfe6f3">Breaking down the responses by age we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-1dfe6f3" data-svelte-h="svelte-182v6p6"><h1 class="svelte-1dfe6f3">Breaking down the response by gender we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-1dfe6f3" data-svelte-h="svelte-d8m381"><h1 class="svelte-1dfe6f3">And finally breaking down the audience by location we see:</h1> <h2>Comming Soon</h2></div></div>`;
+  return ` <div class="t-container svelte-16y5i2u"><div class="text-block svelte-16y5i2u" data-svelte-h="svelte-1wbrv14"><h1 class="svelte-16y5i2u">To Our Sisters</h1> <p>It&#39;s an opportunity to shout out the amazing work done by amazing women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children&#39;s persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but also curious to see how view points differ as you grow up and live in different seasons of your life</p></div> <div class="text-block svelte-16y5i2u"><p data-svelte-h="svelte-afruv8">So I surveyed</p> <h2 class="svelte-16y5i2u">${escape(people)} people</h2> <p data-svelte-h="svelte-8i0119">All in different communities from both single parent and couple parent house holds to see the impact of their mother in their life. I asked them 3 questions:</p> <p data-svelte-h="svelte-ebsjmp">Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p> <p data-svelte-h="svelte-1dcqhej">On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life</p> <p data-svelte-h="svelte-gk7xto">Write a quick lesson learned from your mum</p> <p data-svelte-h="svelte-8xhshp"></p></div> <div class="text-block svelte-16y5i2u" data-svelte-h="svelte-y7kg84"><h1 class="svelte-16y5i2u">Breaking down the respondents</h1> <p>Before we get into what the people are saying it&#39;s important to get a good idea about who is actually responding here to give you a better context to our responses</p> <h2 class="svelte-16y5i2u">Comming Soon</h2> </div></div> <div class="side-blocks svelte-16y5i2u" data-svelte-h="svelte-11myi2e"><div class="chart-block svelte-16y5i2u"><h1 class="svelte-16y5i2u">Breaking down the respondents</h1> <p>Before we get into what the people are saying it&#39;s important to get a good idea about who is actually responding here to give you a better context to our responses</p> <h2>Comming Soon</h2> </div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">Breaking down the responses by ethnic background we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">Breaking down the responses by age we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">Breaking down the response by gender we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">And finally breaking down the audience by location we see:</h1> <h2>Comming Soon</h2></div></div>`;
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
   code: ".intro-container.svelte-w1k6o6.svelte-w1k6o6{display:flex;width:100vw;height:100vh;flex-direction:row;background-color:#000000;margin:auto;padding:0%}.title-img.svelte-w1k6o6.svelte-w1k6o6{position:relative;height:100vh}.title-text.svelte-w1k6o6.svelte-w1k6o6{position:absolute;display:flex;flex-direction:column;justify-content:flex-start;transform:translate(20vw, 40vh);margin:auto}.title-text.svelte-w1k6o6 h1.svelte-w1k6o6{flex:40%;font-family:sans-serif;font-size:10em;align-self:center;margin:0%;color:#ffd502\n}.title-text.svelte-w1k6o6 p.svelte-w1k6o6{font-family:sans-serif;font-size:2em;align-self:center;color:#ffffff}@media screen and (max-width: 1000px){.title-text.svelte-w1k6o6.svelte-w1k6o6{transform:translate(0vw, 0vh)}.title-text.svelte-w1k6o6 h1.svelte-w1k6o6{font-size:5em;flex:10%}}",
   map: null
 };
+let data = null;
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let people2;
+  console.log(data);
+  console.log(people2);
   $$result.css.add(css);
-  return `<div class="Page-container"><div class="intro-container svelte-w1k6o6"><div class="title-img svelte-w1k6o6">${validate_component(Wm_img, "WMimg").$$render($$result, {}, {}, {})}</div> <div class="title-text svelte-w1k6o6" data-svelte-h="svelte-4mhht0"><h1 class="svelte-w1k6o6">To Our Mothers</h1> <p class="svelte-w1k6o6">Reflecting on Motherhood for BHM 2023</p></div></div> ${validate_component(BHM_intro, "BHM").$$render($$result, {}, {}, {})} ${validate_component(Sheroes, "She").$$render($$result, {}, {}, {})} ${validate_component(Family, "Fam").$$render($$result, {}, {}, {})} ${validate_component(Pub_intro, "Pintro").$$render($$result, {}, {}, {})}</div>`;
+  return `<div class="Page-container"><div class="intro-container svelte-w1k6o6"><div class="title-img svelte-w1k6o6">${validate_component(Wm_img, "WMimg").$$render($$result, {}, {}, {})}</div> <div class="title-text svelte-w1k6o6" data-svelte-h="svelte-4mhht0"><h1 class="svelte-w1k6o6">To Our Mothers</h1> <p class="svelte-w1k6o6">Reflecting on Motherhood for BHM 2023</p></div></div> ${validate_component(BHM_intro, "BHM").$$render($$result, {}, {}, {})} ${validate_component(Sheroes, "She").$$render($$result, {}, {}, {})} ${validate_component(Family, "Fam").$$render($$result, {}, {}, {})} ${validate_component(Pub_intro, "Pintro").$$render($$result, { data, count: people2 }, {}, {})} ${validate_component(Sheroes, "She").$$render($$result, {}, {}, {})}</div>`;
 });
 export {
   Page as default

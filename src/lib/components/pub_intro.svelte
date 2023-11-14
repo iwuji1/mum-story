@@ -1,5 +1,6 @@
 <script>
   export let data;
+  export let count;
 
   console.log(data)
 
@@ -75,7 +76,7 @@
   </div>
   <div class= "text-block">
     <p>So I surveyed</p>
-    <h2> {people} people</h2>
+    <h2> {count} people</h2>
     <p>All in different communities from both single parent and couple parent house holds to see the impact of their mother in their life. I asked them 3 questions:</p>
     <p>Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p>
     <p>On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life </p>

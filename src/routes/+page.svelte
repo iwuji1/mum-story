@@ -25,7 +25,7 @@
         }
         const data = await response.json();
         questions = data;
-        people = data[1].length;
+        people = data[0].length;
     } catch (error) {
       console.error('Error fetching data:', error);
     }
