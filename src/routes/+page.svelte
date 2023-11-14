@@ -2,6 +2,7 @@
   import * as d3 from 'd3';
   import { scaleBand, scaleLinear } from "d3-scale";
   import { max } from "d3-array";
+  import { onMount } from 'svelte';
 
   import WMimg from '$lib/components/wm_img.svelte'
   import Stars from '$lib/components/star.svelte'
