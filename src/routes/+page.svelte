@@ -24,7 +24,12 @@
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        questions = data;
+
+        function sumFreq(jsonArray) {
+          return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
+        };
+
+        questions = sumFreq(data[1])
         people = data[1].length;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -119,7 +124,7 @@ html, body {
   <BHM />
   <She />
   <Fam />
-  <Pintro data={data} count={people}/>
+  <Pintro data={data} count={questions}/>
   <She />
 
 
