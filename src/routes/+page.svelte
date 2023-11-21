@@ -35,6 +35,15 @@
 
 <style>
 
+  :global(body){
+    margin: 0;
+  }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .intro-container {
   display: flex;
   width: 100vw;

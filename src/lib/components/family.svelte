@@ -43,7 +43,6 @@
 
     facts.forEach(function(elem, i) {
       gsap.set(elem, {position: "absolute", top: 0});
-      console.log(elem.querySelector('.fact-img'), i)
 
       tl.from(elem.querySelector('.fact-img'), {autoAlpha:0, scale: 0}, i)
       tl.from(elem.querySelector('.fact-text'), {autoAlpha:0, translateY: 100}, i)
