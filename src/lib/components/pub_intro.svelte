@@ -23,7 +23,7 @@
     })
 
     tl.to(charts, {
-      xPercent: -85 * (charts.length - 1),
+      xPercent: -100 * (charts.length - 1),
       scrollTrigger: {
         trigger: ".chart-container",
         start: "center center",
@@ -45,11 +45,6 @@
 
 <style>
 
-  html, body {
-  	overflow-x: hidden;
-  	margin: 0;
-  }
-
  .t-container {
    display: flex;
    width: 100vw;
@@ -57,7 +52,7 @@
    justify-content: center;
    flex-direction: column;
    text-align: justify;
-   margin: 20px auto;
+   margin: auto;
    font-family: "helvetica";
    background-color: #ffd502;
  }
@@ -65,6 +60,8 @@
  .wrapper {
    min-height: 100vh;
    overflow-x: hidden;
+   background-color: #ffd502;
+   font-family: "helvetica";
  }
 
  .chartcontainer {
@@ -81,15 +78,22 @@
  .chart-block {
      display: flex;
      flex-direction: column;
-     height: 80vh;
+     height: 100vh;
      flex: 1;
      justify-content: space-between;
      padding: 1em;
      align-items: center;
-     color: #F0C368;
+     margin: auto;
  }
 
+ .chart-block h1 {
+   color: #2f9744;
+   text-transform:uppercase;
+ }
 
+ .chart-block p {
+
+ }
 
  .text-block {
    padding: 20px 40px 0px;
@@ -110,13 +114,6 @@
    padding-top: 2%;
    padding-bottom: 2%;
    font-size: 5rem;
- }
-
- .side-blocks {
-   width: 400%;
-   height: 100vh;
-   display: flex;
-   flex-wrap: nowrap;
  }
 
 </style>
@@ -150,7 +147,6 @@
         <h1>Breaking down the respondents</h1>
         <p>Before we get into what the people are saying it's important to get a good idea about who is actually responding here to give you a better context to our responses</p>
         <h2>Comming Soon</h2>
-
       </section>
       <section class="c1 chart-block">
         <h1 class="anim">Breaking down the responses by ethnic background we see:</h1>

@@ -15,26 +15,25 @@
 
   let people;
   let data = null;
-  let questions;
 
-  onMount(async () => {
-    try {
-      const response = await fetch('/.netlify/functions/queryResults');
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-
-        function sumFreq(jsonArray) {
-          return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
-        };
-
-        questions = sumFreq(data[1])
-        people = data[1].length;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  })
+  // onMount(async () => {
+  //   try {
+  //     const response = await fetch('/.netlify/functions/queryResults');
+  //     if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       const data = await response.json();
+  //
+  //       function sumFreq(jsonArray) {
+  //         return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
+  //       };
+  //
+  //       people = sumFreq(data[1]);
+  //
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // })
 
 </script>
 
@@ -43,11 +42,6 @@
   :global(body){
     margin: 0;
   }
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
 
 .intro-container {
   display: flex;
@@ -124,8 +118,7 @@ html, body {
   <BHM />
   <She />
   <Fam />
-  <Pintro data={data} count={questions}/>
-  <She />
+  <Pintro data={data} count={people}/>
 
 
 </div>
