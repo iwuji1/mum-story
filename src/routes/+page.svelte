@@ -13,18 +13,27 @@
   import Pintro from '$lib/components/pub_intro.svelte'
   import Fetcher from '$lib/components/DataFetcher.svelte'
 
-  export let data;
+  let people;
+  let data = null;
 
-  $: ( { survey } = data )
+  onMount(async () => {
+    try {
+      const response = await fetch('/.netlify/functions/queryResults');
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
 
-  console.log(survey)
+        function sumFreq(jsonArray) {
+          return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
+        };
 
-  function sumFreq(jsonArray) {
-    return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
-  };
+        people = sumFreq(data[1]);
 
-  let people = sumFreq(survey[1]);
-
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  })
 
 </script>
 
@@ -109,7 +118,7 @@
   <BHM />
   <She />
   <Fam />
-  <!-- <Pintro data={survey} count={people}/> -->
+  <Pintro data={data} count={people}/>
 
 
 </div>
