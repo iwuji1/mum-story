@@ -7,7 +7,7 @@ export const load = async () => {
   console.log('Server Load Run')
   const fetchsurvey = async () => {
     try {
-      const response = await this.fetch('/.netlify/functions/queryResults');
+      const response = await fetch('/.netlify/functions/queryResults');
       if (!response.ok) {
           throw new Error('Network response was not ok');
         }
