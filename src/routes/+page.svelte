@@ -18,11 +18,13 @@
 
   onMount(async () => {
     try {
-      const response = await fetch('/.netlify/functions/queryResults');
+      const response = await fetch(".netlify/functions/queryResults");
       if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+
+        console.log(data)
 
         function sumFreq(jsonArray) {
           return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);

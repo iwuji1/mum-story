@@ -1,9 +1,19 @@
 const { BigQuery } = require('@google-cloud/bigquery');
 
+
 exports.handler = async function (event, context) {
   try {
 
-    const key = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+    let key;
+    if (process.env.CONTEXT != 'dev') {
+      // Use the credentials from the environment variable in production
+      key = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+    } else {
+      // Load credentials from the local JSON file during development
+      key = require("./our-access-404113-ba8e70863a01.json");
+    }
+
+    // const key = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
     const bigquery = new BigQuery({
      projectId: key.project_id,
@@ -32,6 +42,9 @@ exports.handler = async function (event, context) {
     // Send the JSON data as the response
     return {
       statusCode: 200,
+      headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
       body: JSON.stringify(results),
       jsonData
     }
