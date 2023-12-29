@@ -4,33 +4,25 @@
   import { max } from "d3-array";
   import { onMount } from 'svelte';
 
-  import WMimg from '$lib/components/wm_img.svelte'
-  import Stars from '$lib/components/star.svelte'
-  import BHM from '$lib/components/BHM_intro.svelte'
-  import She from '$lib/components/Sheroes.svelte'
-  import Fam from '$lib/components/family.svelte'
-  import Vbar from '$lib/components/vbar.svelte'
-  import Pintro from '$lib/components/pub_intro.svelte'
-  import Fetcher from '$lib/components/DataFetcher.svelte'
+  import WMimg from '$lib/components/wm_img.svelte';
+  import Stars from '$lib/components/star.svelte';
+  import BHM from '$lib/components/BHM_intro.svelte';
+  import She from '$lib/components/Sheroes.svelte';
+  import Fam from '$lib/components/family.svelte';
+  import Vbar from '$lib/components/vbar.svelte';
+  import Pintro from '$lib/components/pub_intro.svelte';
+  import Fetcher from '$lib/components/DataFetcher.svelte';
+  import Comments from '$lib/components/comment_map.svelte';
 
-  let people;
-  let data = null;
+  let data;
 
   onMount(async () => {
     try {
-      const response = await fetch(".netlify/functions/queryResults");
+      const response = await fetch("/.netlify/functions/queryResults");
       if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        const data = await response.json();
-
-        console.log(data)
-
-        function sumFreq(jsonArray) {
-          return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
-        };
-
-        people = sumFreq(data[1]);
+        data = await response.json();
 
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -120,7 +112,9 @@
   <BHM />
   <She />
   <Fam />
-  <Pintro data={data} count={people}/>
-
+  {#if data}
+    <Pintro data={data} />
+  {/if}
+  <Comments />
 
 </div>

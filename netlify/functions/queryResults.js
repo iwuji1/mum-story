@@ -27,6 +27,9 @@ exports.handler = async function (event, context) {
       'SELECT * FROM our-access-404113.Data_export.EthB_dat',
       'SELECT * FROM our-access-404113.Data_export.Gender_dat',
       'SELECT * FROM our-access-404113.Data_export.age_gen_dat',
+      'SELECT * FROM our-access-404113.Data_export.reg_Mstat',
+      'SELECT * FROM our-access-404113.Data_export.words_dat',
+      'SELECT * FROM our-access-404113.Data_export.lessons_dat',
     ];
 
     // Execute the BigQuery query

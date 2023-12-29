@@ -1,8 +1,27 @@
 <script>
   import { onMount } from 'svelte';
   import gsap from 'gsap';
+  import SF from '$lib/components/surveyforce.svelte'
+  import Demo from '$lib/components/demochart.svelte'
+  import Gend from '$lib/components/genchart.svelte'
+  import Aged from '$lib/components/agechart.svelte'
+  import RegMS from '$lib/components/reg_MS.svelte'
+
   export let data;
-  export let count;
+
+  function sumFreq(jsonArray) {
+    return jsonArray.reduce((sum, obj) => sum + obj.Freq, 0);
+  };
+
+  let count = sumFreq(data[1])
+
+  let demodat = data[0];
+  let gendat = data[1];
+  let agedat = data[2];
+  let reg_Mstat = data[3];
+  let wordat = data[4];
+  let lessondat = data[5];
+
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,7 +45,7 @@
       xPercent: -100 * (charts.length - 1),
       scrollTrigger: {
         trigger: ".chart-container",
-        start: "center center",
+        start: "top top",
         scrub: 1,
         snap: 1/ (charts.length),
         end: "+=1000",
@@ -72,7 +91,7 @@
 
  .chart-container {
    display: flex;
-   width: 400vw;
+   width: 500vw;
  }
 
  .chart-block {
@@ -96,8 +115,10 @@
  }
 
  .text-block {
+   display: flex;
    padding: 20px 40px 0px;
    max-width: 700px;
+   flex-direction: column;
  }
 
  .text-block h1 {
@@ -114,6 +135,15 @@
    padding-top: 2%;
    padding-bottom: 2%;
    font-size: 5rem;
+ }
+
+ .viz-text {
+
+ }
+
+ .viz-img {
+   max-width: 80vw;
+   height: auto;
  }
 
 </style>
@@ -134,10 +164,10 @@
     <p>
   </div>
   <div class= "text-block">
-    <h1>Breaking down the respondents</h1>
-    <p>Before we get into what the people are saying it's important to get a good idea about who is actually responding here to give you a better context to our responses</p>
-    <h2>Comming Soon</h2>
-
+    <div class="viz-text">
+      <h1>Breaking down the respondents</h1>
+      <p>Before we get into what the people are saying it's important to get a good idea about who is actually responding here to give you a better context to our responses</p>
+    </div>
   </div>
 </div>
 <div class="wrapper">
@@ -145,24 +175,23 @@
     <div class="chart-container">
       <section class= "intro chart-block">
         <h1>Breaking down the respondents</h1>
-        <p>Before we get into what the people are saying it's important to get a good idea about who is actually responding here to give you a better context to our responses</p>
-        <h2>Comming Soon</h2>
+        <SF data={wordat} />
       </section>
       <section class="c1 chart-block">
         <h1 class="anim">Breaking down the responses by ethnic background we see:</h1>
-        <h2>Comming Soon</h2>
+        <Demo demodat={demodat}/>
       </section>
       <section class="c2 chart-block">
         <h1 class="anim">Breaking down the responses by age we see:</h1>
-        <h2>Comming Soon</h2>
+        <Aged agedat={agedat}/>
       </section>
       <section class= "c3 chart-block">
         <h1 class="anim">Breaking down the response by gender we see:</h1>
-        <h2>Comming Soon</h2>
+        <Gend gendat={gendat}/>
       </section>
       <section class= "c4 chart-block">
         <h1 class="anim">And finally breaking down the audience by location we see:</h1>
-        <h2>Comming Soon</h2>
+        <RegMS rmdat={reg_Mstat}/>
       </section>
     </div>
   </div>
