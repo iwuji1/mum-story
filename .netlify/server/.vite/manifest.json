@@ -50,13 +50,8 @@
     "src": "src/lib/assets/bhm_poster.jpeg"
   },
   "src/routes/+page.css": {
-    "file": "_app/immutable/assets/_page.5874d970.css",
+    "file": "_app/immutable/assets/_page.e5a7c72b.css",
     "src": "src/routes/+page.css"
-  },
-  "src/routes/+page.server.js": {
-    "file": "entries/pages/_page.server.js",
-    "isEntry": true,
-    "src": "src/routes/+page.server.js"
   },
   "src/routes/+page.svelte": {
     "assets": [
@@ -64,7 +59,7 @@
       "_app/immutable/assets/bhm_faces.3fc2b602.jpeg"
     ],
     "css": [
-      "_app/immutable/assets/_page.5874d970.css"
+      "_app/immutable/assets/_page.e5a7c72b.css"
     ],
     "file": "entries/pages/_page.svelte.js",
     "imports": [

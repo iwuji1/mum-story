@@ -2,6 +2,8 @@ import { c as create_ssr_component, d as add_attribute, f as each, e as escape, 
 import "d3";
 import { scaleBand, scaleLinear } from "d3-scale";
 import { max } from "d3-array";
+import "topojson-client";
+import "d3-composite-projections";
 const wm_img_svelte_svelte_type_style_lang = "";
 const css$8 = {
   code: ".img_container.svelte-4spcxb{align-items:center;justify-content:center;text-align:center}svg.svelte-4spcxb{width:100vw;height:100vh;fill:#ee3423}.cls-1.svelte-4spcxb{transform:translate(25%, 0) scale(1)}@media screen and (max-width: 1000px){svg.svelte-4spcxb{width:100vw}.cls-1.svelte-4spcxb{transform:translate(0, 50%) scale(0.5)}}",
@@ -44,7 +46,7 @@ const Vbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let xDomain;
   let xScale;
   let yScale;
-  const data2 = [
+  const data = [
     { "age": "16-19", "percentage": 1 },
     { "age": "20-24", "percentage": 6 },
     { "age": "25-29", "percentage": 10 },
@@ -65,20 +67,20 @@ const Vbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$5);
   innerHeight = height$1 - margin.top - margin.bottom;
   innerWidth = width$1 - margin.left - margin.right;
-  xDomain = data2.map(function(d) {
+  xDomain = data.map(function(d) {
     return d.age;
   });
-  data2.map(function(d) {
+  data.map(function(d) {
     return d.percentage;
   });
   xScale = scaleBand().domain(xDomain).range([0, innerWidth]).padding(0.1);
   yScale = scaleLinear().domain([
     0,
-    max(data2, function(d) {
+    max(data, function(d) {
       return d.percentage;
     })
   ]).range([innerHeight, 0]);
-  return `<svg class="vbar svelte-os3ttl">${each(data2, (d) => {
+  return `<svg class="vbar svelte-os3ttl">${each(data, (d) => {
     return `<text class="chart-txt svelte-os3ttl" text-anchor="middle"${add_attribute("x", xScale(d.age) + xScale.bandwidth() / 2, 0)} dy=".3em"${add_attribute("y", innerHeight + 10, 0)}>${escape(d.age)}</text> <rect class="bars svelte-os3ttl"${add_attribute("x", xScale(d.age), 0)}${add_attribute("y", yScale(d.percentage), 0)}${add_attribute("width", xScale.bandwidth(), 0)}${add_attribute("height", yScale(0) - yScale(d.percentage), 0)} fill="#ee3423"></rect>`;
   })}</svg>`;
 });
@@ -95,7 +97,7 @@ const Hbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let yDomain;
   let yScale;
   let cScale;
-  const data2 = [
+  const data = [
     {
       "Ethnic_group": "Asian/ Asian British",
       "couple_parents": 12,
@@ -131,29 +133,29 @@ const Hbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$4);
   innerHeight = height - margin.top - margin.bottom;
   innerWidth = width - margin.left - margin.right;
-  data2.map(function(d) {
+  data.map(function(d) {
     return d.couple_parents;
   });
-  data2.map(function(d) {
+  data.map(function(d) {
     return d.single_parents;
   });
-  yDomain = data2.map(function(d) {
+  yDomain = data.map(function(d) {
     return d.Ethnic_group;
   });
   yScale = scaleBand().domain(yDomain).range([0, innerHeight]).padding(0.1);
   cScale = scaleLinear().domain([
     0,
-    max(data2, function(d) {
+    max(data, function(d) {
       return d.couple_parents;
     })
   ]).range([0, innerWidth]);
   scaleLinear().domain([
     0,
-    max(data2, function(d) {
+    max(data, function(d) {
       return d.single_parents;
     })
   ]).range([0, innerWidth]);
-  return `<svg class="hbar svelte-f0alx6">${each(data2, (d) => {
+  return `<svg class="hbar svelte-f0alx6">${each(data, (d) => {
     return `<text class="chart-txt svelte-f0alx6" text-anchor="start" x="0" dy=".3em"${add_attribute("y", yScale(d.Ethnic_group) + yScale.bandwidth() / 2, 0)}>${escape(d.Ethnic_group)}</text> <rect class="cbars svelte-f0alx6"${add_attribute("id", d.Ethnic_group, 0)} x="0"${add_attribute("y", yScale(d.Ethnic_group), 0)}${add_attribute("width", cScale(d.couple_parents), 0)}${add_attribute("height", yScale.bandwidth() / 2, 0)} fill="#ee3423"></rect> <rect class="cbars svelte-f0alx6"${add_attribute("id", d.Ethnic_group, 0)} x="0"${add_attribute("y", yScale(d.Ethnic_group) + yScale.bandwidth() / 2, 0)}${add_attribute("width", cScale(d.single_parents), 0)}${add_attribute("height", yScale.bandwidth() / 2, 0)} fill="#2f9744"></rect>`;
   })}</svg>`;
 });
@@ -163,7 +165,7 @@ const css$3 = {
   map: null
 };
 const Pgrid = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const data2 = [
+  const data = [
     { "role": "mother" },
     { "role": "mother" },
     { "role": "mother" },
@@ -176,7 +178,7 @@ const Pgrid = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     { "role": "farther" }
   ];
   $$result.css.add(css$3);
-  return `<div class="sqre svelte-1saeqhq">${each(data2, (d) => {
+  return `<div class="sqre svelte-1saeqhq">${each(data, (d) => {
     return `<svg class="svelte-1saeqhq"><g><path class="${escape(null_to_empty(d.role), true) + " svelte-1saeqhq"}" d="M52.65,125.2h19.9c3.3,0,6-2.7,6-6V86.301h3.399c3.301,0,6-2.701,6-6V43.2c0-3.3-2.699-6-6-6H43.25c-3.3,0-6,2.7-6,6
         		v37.101c0,3.299,2.7,6,6,6h3.4V119.2C46.65,122.5,49.25,125.2,52.65,125.2z"></path><circle class="${escape(null_to_empty(d.role), true) + " svelte-1saeqhq"}" cx="62.55" cy="15.7" r="15.7"></circle></g></svg>`;
   })}</div>`;
@@ -190,31 +192,30 @@ const Family = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$2);
   return `<div class="facts-container svelte-1pp1l63"><div class="wrapper svelte-1pp1l63"><div class="fact svelte-1pp1l63" data-svelte-h="svelte-1019db9"><article class="fact-text svelte-1pp1l63"><h1 class="c-title svelte-1pp1l63">The State of families in the UK</h1></article> <div class="fact-img svelte-1pp1l63"><svg class="svelte-1pp1l63"></svg></div></div> <div class="fact svelte-1pp1l63" data-svelte-h="svelte-11ihmcv"><article class="fact-text svelte-1pp1l63"><p class="svelte-1pp1l63">As of 2022 there are <span class="svelte-1pp1l63">19.4 Million families<span class="svelte-1pp1l63">in the UK</span></span></p></article> <div class="fact-img svelte-1pp1l63"><svg class="svelte-1pp1l63"><g><circle cx="50%" cy="50%" r="50px" class="svelte-1pp1l63"></circle></g></svg></div></div> <div class="fact svelte-1pp1l63" data-svelte-h="svelte-1o0zand"><article class="fact-text svelte-1pp1l63"><p class="svelte-1pp1l63">Out of that 19.4 million 15% of them are single-parent house holds</p> <p class="svelte-1pp1l63">That means we have around <span class="svelte-1pp1l63">2.9 Million single parent families</span> in the UK</p></article> <div class="fact-img svelte-1pp1l63"><svg class="svelte-1pp1l63"><g><path class="st1 svelte-1pp1l63" d="M400 224h-44l-26.12-53.25c-12.5-25.5-35.38-44.25-61.75-51L197 98.63C189.5 96.84 181.1 95.97 174.5 95.97c-20.88 0-41.33 6.81-58.26 19.78L76.5 146.3C68.31 152.5 64.01 162 64.01 171.6c0 17.11 13.67 32.02 32.02 32.02c6.808 0 13.67-2.158 19.47-6.616l39.63-30.38c5.92-4.488 13.01-6.787 19.53-6.787c2.017 0 3.981 .2196 5.841 .6623l14.62 4.25l-37.5 87.5C154.1 260.3 152.5 268.8 152.5 277.2c0 22.09 11.49 43.52 31.51 55.29l85 50.13l-27.5 87.75c-.9875 3.174-1.458 6.388-1.458 9.55c0 13.65 8.757 26.31 22.46 30.58C265.6 511.5 268.9 512 272 512c13.62 0 26.25-8.75 30.5-22.5l31.75-101c1.211-4.278 1.796-8.625 1.796-12.93c0-16.57-8.661-32.51-23.55-41.44l-61.13-36.12l31.25-78.38l20.25 41.5C310.9 277.4 327.9 288 345.1 288H400c17.62 0 32-14.38 32-32C432 238.3 417.6 224 400 224zM288 96c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48S261.5 96 288 96zM129.8 317.5L114.9 352H48c-17.62 0-32 14.38-32 32s14.38 32 32 32h77.5c19.25 0 36.5-11.5 44-29.12l8.875-20.5l-10.75-6.25C150.4 349.9 137.6 334.8 129.8 317.5z"></path></g></svg></div></div> <div class="fact svelte-1pp1l63"><article class="fact-text svelte-1pp1l63" data-svelte-h="svelte-bpo26f"><p class="svelte-1pp1l63">Let&#39;s dig into this a bit more:</p> <p class="svelte-1pp1l63"><span class="svelte-1pp1l63">Less than 1% of single parents are teenagers</span>, and this demographic continues to decline</p></article> <div class="fact-img svelte-1pp1l63">${validate_component(Vbar, "Vbar").$$render($$result, {}, {}, {})}</div></div> <div class="fact svelte-1pp1l63"><article class="fact-text svelte-1pp1l63" data-svelte-h="svelte-3gf9u"><p class="svelte-1pp1l63">A smaller proportion of single parents tend to be from an Asian/Asian British background compared to couple parents (5% vs. 12%).</p> <p class="svelte-1pp1l63">However, <span class="svelte-1pp1l63">a higher proportion of single parents tend to be from a Black/Black British (9%)</span> or Mixed/Multiple (3%) ethnic backgrounds compared to couple parents (4% and 1% respectively).</p></article> <div class="fact-img svelte-1pp1l63">${validate_component(Hbar, "Hbar").$$render($$result, {}, {}, {})}</div></div> <div class="fact svelte-1pp1l63"><article class="fact-text svelte-1pp1l63" data-svelte-h="svelte-1t5ppm7"><p class="svelte-1pp1l63">But regarless of race or creed, one overaching truth remains</p> <p class="svelte-1pp1l63"><span class="svelte-1pp1l63">9 out of 10 singe parents are mothers</span></p></article> <div class="fact-img svelte-1pp1l63">${validate_component(Pgrid, "Pgrid").$$render($$result, {}, {}, {})}</div></div> <div class="fact svelte-1pp1l63" data-svelte-h="svelte-1t92ulf"><article class="fact-text svelte-1pp1l63"><p class="svelte-1pp1l63">Whether in a single family or multiparent household  mothers play a vital role in the family unit from carrying and giving birth, to raising and providing a safe environment to discipling and giving them access to education, fathers play a role too but remember the theme of the month...</p></article> <div class="fact-img svelte-1pp1l63"></div></div></div></div>`;
 });
+const force_tooltip_svelte_svelte_type_style_lang = "";
+const demochart_svelte_svelte_type_style_lang = "";
+const genchart_svelte_svelte_type_style_lang = "";
+const agechart_svelte_svelte_type_style_lang = "";
+const map_legend_svelte_svelte_type_style_lang = "";
+const reg_MS_svelte_svelte_type_style_lang = "";
 const pub_intro_svelte_svelte_type_style_lang = "";
+const comment_map_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: '.t-container.svelte-16y5i2u.svelte-16y5i2u{display:flex;width:100vw;align-items:center;justify-content:center;flex-direction:column;text-align:justify;margin:20px auto;font-family:"helvetica";background-color:#ffd502}.text-block.svelte-16y5i2u.svelte-16y5i2u{padding:20px 40px 0px;max-width:700px}.text-block.svelte-16y5i2u h1.svelte-16y5i2u{color:#2f9744;text-transform:uppercase}.text-block.svelte-16y5i2u h2.svelte-16y5i2u{text-align:center;background-color:#000000;color:#ffffff;margin-left:15%;margin-right:15%;padding-top:2%;padding-bottom:2%;font-size:5rem}.side-blocks.svelte-16y5i2u.svelte-16y5i2u{width:400%;height:100vh;display:flex;flex-wrap:nowrap}.chart-block.svelte-16y5i2u.svelte-16y5i2u{width:100vw}.chart-block.svelte-16y5i2u h1.svelte-16y5i2u{text-align:left;color:#2f9744;text-transform:uppercase;font-size:2rem}',
+  code: "body{margin:0}.intro-container.svelte-hzylwt.svelte-hzylwt{display:flex;width:100vw;height:100vh;flex-direction:row;background-color:#000000;margin:auto;padding:0%}.title-text.svelte-hzylwt.svelte-hzylwt{position:absolute;display:flex;flex-direction:column;justify-content:flex-start;transform:translate(20vw, 40vh);margin:auto}.title-text.svelte-hzylwt h1.svelte-hzylwt{flex:40%;font-family:sans-serif;font-size:10em;align-self:center;margin:0%;color:#ffd502\n  }.title-text.svelte-hzylwt p.svelte-hzylwt{font-family:sans-serif;font-size:2em;align-self:center;color:#ffffff}",
   map: null
 };
-const Pub_intro = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { data: data2 } = $$props;
-  console.log(data2);
-  if ($$props.data === void 0 && $$bindings.data && data2 !== void 0)
-    $$bindings.data(data2);
+const Comment_map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
-  return ` <div class="t-container svelte-16y5i2u"><div class="text-block svelte-16y5i2u" data-svelte-h="svelte-1wbrv14"><h1 class="svelte-16y5i2u">To Our Sisters</h1> <p>It&#39;s an opportunity to shout out the amazing work done by amazing women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children&#39;s persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but also curious to see how view points differ as you grow up and live in different seasons of your life</p></div> <div class="text-block svelte-16y5i2u"><p data-svelte-h="svelte-afruv8">So I surveyed</p> <h2 class="svelte-16y5i2u">${escape(people)} people</h2> <p data-svelte-h="svelte-8i0119">All in different communities from both single parent and couple parent house holds to see the impact of their mother in their life. I asked them 3 questions:</p> <p data-svelte-h="svelte-ebsjmp">Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p> <p data-svelte-h="svelte-1dcqhej">On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life</p> <p data-svelte-h="svelte-gk7xto">Write a quick lesson learned from your mum</p> <p data-svelte-h="svelte-8xhshp"></p></div> <div class="text-block svelte-16y5i2u" data-svelte-h="svelte-y7kg84"><h1 class="svelte-16y5i2u">Breaking down the respondents</h1> <p>Before we get into what the people are saying it&#39;s important to get a good idea about who is actually responding here to give you a better context to our responses</p> <h2 class="svelte-16y5i2u">Comming Soon</h2> </div></div> <div class="side-blocks svelte-16y5i2u" data-svelte-h="svelte-11myi2e"><div class="chart-block svelte-16y5i2u"><h1 class="svelte-16y5i2u">Breaking down the respondents</h1> <p>Before we get into what the people are saying it&#39;s important to get a good idea about who is actually responding here to give you a better context to our responses</p> <h2>Comming Soon</h2> </div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">Breaking down the responses by ethnic background we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">Breaking down the responses by age we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">Breaking down the response by gender we see:</h1> <h2>Comming Soon</h2></div> <div class="chart-block svelte-16y5i2u"><h1 class="anim svelte-16y5i2u">And finally breaking down the audience by location we see:</h1> <h2>Comming Soon</h2></div></div>`;
+  return `<div class="intro-container svelte-hzylwt" data-svelte-h="svelte-1uv6atg"><div class="title-text svelte-hzylwt"><h1 class="svelte-hzylwt">To Our Mothers</h1> <p class="svelte-hzylwt">Reflecting on Motherhood for BHM 2023</p></div></div>`;
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ".intro-container.svelte-w1k6o6.svelte-w1k6o6{display:flex;width:100vw;height:100vh;flex-direction:row;background-color:#000000;margin:auto;padding:0%}.title-img.svelte-w1k6o6.svelte-w1k6o6{position:relative;height:100vh}.title-text.svelte-w1k6o6.svelte-w1k6o6{position:absolute;display:flex;flex-direction:column;justify-content:flex-start;transform:translate(20vw, 40vh);margin:auto}.title-text.svelte-w1k6o6 h1.svelte-w1k6o6{flex:40%;font-family:sans-serif;font-size:10em;align-self:center;margin:0%;color:#ffd502\n}.title-text.svelte-w1k6o6 p.svelte-w1k6o6{font-family:sans-serif;font-size:2em;align-self:center;color:#ffffff}@media screen and (max-width: 1000px){.title-text.svelte-w1k6o6.svelte-w1k6o6{transform:translate(0vw, 0vh)}.title-text.svelte-w1k6o6 h1.svelte-w1k6o6{font-size:5em;flex:10%}}",
+  code: "body{margin:0}.intro-container.svelte-1wlroz3.svelte-1wlroz3{display:flex;width:100vw;height:100vh;flex-direction:row;background-color:#000000;margin:auto;padding:0%}.title-img.svelte-1wlroz3.svelte-1wlroz3{position:relative;height:100vh}.title-text.svelte-1wlroz3.svelte-1wlroz3{position:absolute;display:flex;flex-direction:column;justify-content:flex-start;transform:translate(20vw, 40vh);margin:auto}.title-text.svelte-1wlroz3 h1.svelte-1wlroz3{flex:40%;font-family:sans-serif;font-size:10em;align-self:center;margin:0%;color:#ffd502\n}.title-text.svelte-1wlroz3 p.svelte-1wlroz3{font-family:sans-serif;font-size:2em;align-self:center;color:#ffffff}@media screen and (max-width: 1000px){.title-text.svelte-1wlroz3.svelte-1wlroz3{transform:translate(0vw, 0vh)}.title-text.svelte-1wlroz3 h1.svelte-1wlroz3{font-size:5em;flex:10%}}",
   map: null
 };
-let data = null;
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let people2;
-  console.log(data);
-  console.log(people2);
   $$result.css.add(css);
-  return `<div class="Page-container"><div class="intro-container svelte-w1k6o6"><div class="title-img svelte-w1k6o6">${validate_component(Wm_img, "WMimg").$$render($$result, {}, {}, {})}</div> <div class="title-text svelte-w1k6o6" data-svelte-h="svelte-4mhht0"><h1 class="svelte-w1k6o6">To Our Mothers</h1> <p class="svelte-w1k6o6">Reflecting on Motherhood for BHM 2023</p></div></div> ${validate_component(BHM_intro, "BHM").$$render($$result, {}, {}, {})} ${validate_component(Sheroes, "She").$$render($$result, {}, {}, {})} ${validate_component(Family, "Fam").$$render($$result, {}, {}, {})} ${validate_component(Pub_intro, "Pintro").$$render($$result, { data, count: people2 }, {}, {})} ${validate_component(Sheroes, "She").$$render($$result, {}, {}, {})}</div>`;
+  return `<div class="Page-container"><div class="intro-container svelte-1wlroz3"><div class="title-img svelte-1wlroz3">${validate_component(Wm_img, "WMimg").$$render($$result, {}, {}, {})}</div> <div class="title-text svelte-1wlroz3" data-svelte-h="svelte-4mhht0"><h1 class="svelte-1wlroz3">To Our Mothers</h1> <p class="svelte-1wlroz3">Reflecting on Motherhood for BHM 2023</p></div></div> ${validate_component(BHM_intro, "BHM").$$render($$result, {}, {}, {})} ${validate_component(Sheroes, "She").$$render($$result, {}, {}, {})} ${validate_component(Family, "Fam").$$render($$result, {}, {}, {})} ${``} ${validate_component(Comment_map, "Comments").$$render($$result, {}, {}, {})}</div>`;
 });
 export {
   Page as default
