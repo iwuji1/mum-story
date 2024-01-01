@@ -97,7 +97,7 @@
  .chart-block {
      display: flex;
      flex-direction: column;
-     height: 100vh;
+     height: 80vh;
      flex: 1;
      justify-content: space-between;
      padding: 1em;
@@ -108,6 +108,7 @@
  .chart-block h1 {
    color: #2f9744;
    text-transform:uppercase;
+   margin: 0%;
  }
 
  .chart-block p {

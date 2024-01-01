@@ -13,6 +13,8 @@
   import Pintro from '$lib/components/pub_intro.svelte';
   import Fetcher from '$lib/components/DataFetcher.svelte';
   import Comments from '$lib/components/comment_map.svelte';
+  import Test from '$lib/components/test_force.svelte';
+
 
   let data;
 
@@ -114,7 +116,7 @@
   <Fam />
   {#if data}
     <Pintro data={data} />
+    <Comments data={data}/>
   {/if}
-  <Comments />
 
 </div>

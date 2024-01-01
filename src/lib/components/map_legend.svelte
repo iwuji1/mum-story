@@ -1,6 +1,16 @@
 <script>
     export let cScale;
     export let hoveredContinent;
+    export let rmdat;
+
+    import * as d3 from 'd3';
+    import { max } from "d3-array";
+    import { scaleLinear } from "d3-scale";
+
+    let width = 400;
+    let height = 100;
+
+    let xScale = scaleLinear().domain([0, max(rmdat, function(d) {return d.RegFreq})]).range([0, (width-100)])
 </script>
 
 <style>
@@ -11,40 +21,42 @@
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 5px;
-    margin-bottom: 0.25rem;
   }
 
-  p {
-    margin: 0;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    column-gap: 3px;
-    cursor: pointer;
-    transition: opacity 300ms ease;
+  svg {
+    display: block;
+    margin: auto;
+    transform: translateX(20%);
   }
 
-  span {
-    width: 9px;
-    height: 9px;
-    display: inline-block;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
 
-  p.unhovered {
+  text.unhovered {
     opacity: 0.3;
   }
+
+  text.legendTitle {
+	        text-anchor: start;
+	        font-size: 1.2rem;
+	        fill: #4F4F4F;
+	        font-weight: 200;
+	    }
 </style>
 
 <div class='legend' on:mouseleave={() => (hoveredContinent = null)}>
-  {#each cScale.domain() as continent}
-    <p on:mouseover={() => (hoveredContinent = continent)}
-    class:unhovered={hoveredContinent && hoveredContinent !== continent}>
-    <span style="background-color: {cScale(continent)}" />
-      {continent}
-    </p>
-  {/each}
-
+  <svg width={width} height={height}>
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:{cScale(cScale.domain()[0])};stop-opacity:1" />
+        <stop offset="100%" style="stop-color:{cScale(cScale.domain()[1])};stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <rect width="300" height="20" fill="url(#grad1)"/>
+    {#each xScale.ticks(5) as d}
+      <text class="legendTitle" on:mouseover={() => (hoveredContinent = d)}
+      class:unhovered={hoveredContinent && hoveredContinent !== d}
+      x={xScale(d)} y={height-50}>
+        {d}
+      </text>
+    {/each}
+  </svg>
 </div>

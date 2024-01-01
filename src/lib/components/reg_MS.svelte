@@ -24,7 +24,6 @@ let countries = topojson.feature(world, world.objects.countries).features;
 let borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
 
 let conts = continents.features;
-console.log(rmdat)
 
 let width = 1000;
 let height = 600;
@@ -48,6 +47,13 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
 
 <style>
 
+.map-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0%;
+}
+
   svg {
     width: 80vw;
     height: 60vh;
@@ -57,7 +63,7 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
 
 <div class="map-container">
 
-<Legend {cScale} bind:hoveredContinent />
+<Legend {cScale} {rmdat} bind:hoveredContinent />
   <svg class="RM_map">
     <g class="inner-chart" transform="translate({margin.left}, {margin.top})" on:mouseleave={() => (hovered = null)}>
     {#each conts as country}
@@ -88,5 +94,6 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
       {/each}
     {/each}
     </g>
+
   </svg>
 </div>

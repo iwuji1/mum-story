@@ -11,7 +11,7 @@ import gsap from 'gsap';
 export let data;
 
 let width = 800;
-let height = 400;
+let height = 700;
 let hovered;
 
 const margin = { top: 20, right: 20, left: 120, bottom: 20 };
@@ -45,7 +45,7 @@ $: {
 <style>
 
 </style>
-<div class="force-chart">
+<div class="force-chart" bind:clientWidth={width}>
   <svg {width} {height}>
     <g class="inner-chart" on:mouseleave={() => (hovered = null)}>
       {#each nodes as node, i}
