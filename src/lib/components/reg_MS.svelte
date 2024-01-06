@@ -75,7 +75,10 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
     {#each rmdat as dat}
       {#each conts as country}
         {#if dat.Region == country.properties.CONTINENT}
-          <path d={path(country)}
+          <path
+          class="regpath"
+          id={dat.Region}
+          d={path(country)}
           fill={cScale(dat.RegFreq)}
           stroke={hovered || hoveredContinent
             ? hovered === dat || hoveredContinent === dat.Region

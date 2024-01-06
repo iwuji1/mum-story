@@ -17,41 +17,41 @@
   $: yDomain = gendat.map(function(d) {return d.Freq});
 
   $: xScale = scaleBand().domain(xDomain).range([0, innerWidth]).padding(0.1);
-  $: yScale = scaleLinear().domain([0, max(gendat, function(d) {return d.Freq})]).range([innerHeight, 0]);
+  $: sScale = scaleLinear().domain([0, max(gendat, function(d) {return d.Freq})]).range([20, 180]);
 
 
 </script>
 
 <style>
 
-.bars {
-  transform: translate(10%, 0)
+.gencircle {
+  transform: translate(20%, 10%)
 }
 
-.chart-txt {
+.gen-txt {
   fill: #ffffff;
-  transform: translate(10%, 1%);
+  transform: translate(29%, 10%);
   font-family: sans-serif;
+  font-size: 2em;
 }
 
 svg {
   width: 80vw;
-  height: 60vh;
+  height: 100vh;
 }
 
 </style>
 
 <svg class="gendbar">
   {#each gendat as d}
-  <text class="chart-txt" text-anchor="middle" x={xScale(d["Gender"]) + xScale.bandwidth() / 2} dy=".3em" y={innerHeight+10}>{d["Gender"]}</text>
-    <rect
-      class="bars"
+    <circle
+      class="gencircle"
       id= {d["Gender"]}
-      x={xScale(d["Gender"])}
-      y={yScale(d.Freq)}
-      width={xScale.bandwidth()}
-      height={yScale(0) - yScale(d.Freq)}
+      cx={xScale(d["Gender"]) + xScale.bandwidth() }
+      cy={xScale.bandwidth()}
+      r={sScale(d.Freq)}
       fill="#ee3423"
       />
+    <text class="gen-txt" text-anchor="middle" x={xScale(d["Gender"]) + xScale.bandwidth() / 2} dy=".3em" y={xScale.bandwidth()}>{d["Gender"]}</text>
   {/each}
 </svg>

@@ -2,6 +2,7 @@
   import * as d3 from 'd3';
   import { scaleBand, scaleLinear } from "d3-scale";
   import { max } from "d3-array";
+  import { onMount } from 'svelte';
 
   export let demodat;
 
@@ -19,18 +20,19 @@
   $: xScale = scaleBand().domain(xDomain).range([0, innerWidth]).padding(0.1);
   $: yScale = scaleLinear().domain([0, max(demodat, function(d) {return d.Freq})]).range([innerHeight, 0]);
 
+  let container = document.querySelector(".demobar");
 
 </script>
 
 <style>
 
-.bars {
-  transform: translate(10%, 0)
+.ethbars {
+  transform: translate(25%, 0)
 }
 
-.chart-txt {
-  fill: #ffffff;
-  transform: translate(10%, 1%);
+.eth-txt {
+  color: #ffffff;
+  transform: translate(22.5%, -2%);
   font-family: sans-serif;
 }
 
@@ -39,13 +41,15 @@ svg {
   height: 60vh;
 }
 
+
+
 </style>
 
 <svg class="demobar">
   {#each demodat as d}
-  <text class="chart-txt" text-anchor="middle" x={xScale(d["Ethnic Background"]) + xScale.bandwidth() / 2} dy=".3em" y={innerHeight+10}>{d["Ethnic Background"]}</text>
+  <foreignObject class="eth-txt" x={xScale(d["Ethnic Background"]) + xScale.bandwidth() / 2} dy=".3em" y={innerHeight+10} width={xScale.bandwidth()} height="180"><p>{d["Ethnic Background"]}</p></foreignObject>
     <rect
-      class="bars"
+      class="ethbars"
       id= {d["Ethnic Background"]}
       x={xScale(d["Ethnic Background"])}
       y={yScale(d.Freq)}

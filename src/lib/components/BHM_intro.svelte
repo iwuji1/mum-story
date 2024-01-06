@@ -6,7 +6,6 @@
   import { onMount } from 'svelte';
 
 	onMount(() => {
-    gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.defaults({

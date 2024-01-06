@@ -21,39 +21,161 @@
   let reg_Mstat = data[3];
   let wordat = data[4];
   let lessondat = data[5];
+  $: forcepower = false;
 
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    let charts = gsap.utils.toArray(".chart-block");
-    let texts = gsap.utils.toArray(".anim");
+    let numbers = document.querySelectorAll(".t-container");
 
-    var tl = gsap.timeline({
+    let sections = gsap.utils.toArray('.chart-block')
+    console.log(sections)
+
+    var tl2 = gsap.timeline({
       scrollTrigger: {
-        trigger: ".chartcontainer .chart-container",
-        start: "top top",
-        pin: ".chartcontainer .chart-container",
-        scrub: 1,
-        pinSpacing: true,
-        id: "pinning",
-        ease: "power2"
-      }
-    })
+        trigger: numbers,
+        start: 'top center',
+        toggleActions: 'restart pause resume reverse',
+      },
+    });
 
-    tl.to(charts, {
-      xPercent: -100 * (charts.length - 1),
+    gsap.utils.toArray('.cnt').forEach(function (el) {
+      var target = { val: 0 };
+      tl2.to(target, {
+        val: el.getAttribute('data-number'),
+        duration: 1,
+        onUpdate: function () {
+          el.innerText = target.val.toFixed(1)+" people";
+        },
+      });
+    });
+
+    let scrollTween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
         trigger: ".chart-container",
-        start: "top top",
-        scrub: 1,
-        snap: 1/ (charts.length),
-        end: "+=1000",
-        id: "charts",
-        ease: "power2"
+        pin: true,
+        scrub: 0.1,
+        //snap: directionalSnap(1 / (sections.length - 1)),
+        end: "+=3000"
       }
-    });
+  });
+
+  ScrollTrigger.defaults({markers: {startColor: "white", endColor: "white"}});
+
+  ScrollTrigger.create({
+    trigger: ".feelsforce",
+    containerAnimation: scrollTween,
+    start: "center 80%",
+    end: "center 10%",
+    onEnter: () => {
+      forcepower=true;
+    },
+    onLeave: () => {
+      forcepower=false;
+    },
+    onEnterBack: () => {
+      forcepower=true;
+    },
+    onLeaveBack: () => {
+      forcepower=false;
+    },
+  });
+
+  let ethsectionscroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".demobar",
+      containerAnimation: scrollTween,
+      start: "center 80%",
+      end: "center 20%",
+      toggleActions: "play complete pause reset",
+      id: "1",
+    }
   })
+
+
+  ethsectionscroll.from("rect.ethbars", {
+    scaleY:0,
+    transformOrigin: '50% 100%',
+    stagger: .1,
+    ease: "power2",
+  })
+  .from(".eth-txt", {
+    opacity:0,
+    y:0,
+    ease: "power2"
+  })
+
+  let agesectionscroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".agebar",
+      containerAnimation: scrollTween,
+      start: "center 80%",
+      end: "center 20%",
+      toggleActions: "play complete pause reset",
+      id: "1",
+    }
+  })
+
+  agesectionscroll.from("rect.agebars", {
+    scaleX:0,
+    stagger: .1,
+    ease: "power2"
+  })
+  .from("text.age-txt", {
+    opacity:0,
+    x:100,
+    ease: "power2"
+  });
+
+  let gensectionscroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".gendbar",
+      containerAnimation: scrollTween,
+      start: "center 80%",
+      end: "center 20%",
+      toggleActions: "play complete pause reset",
+      id: "1",
+    }
+  })
+
+  gensectionscroll.from("circle.gencircle", {
+    scale: 2,
+    transformOrigin: '50% 50%',
+    opacity: 0,
+    ease: "power2"
+  })
+  .from("text.gen-txt", {
+    opacity: 0,
+    ease:"power2"
+  });
+
+  let regsectionscroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".RM_map",
+      containerAnimation: scrollTween,
+      start: "center 80%",
+      end: "center 20%",
+      toggleActions: "play complete pause reset",
+      id: "1",
+    }
+  })
+
+  regsectionscroll.from("path.regpath", {
+    scale:0,
+    transformOrigin: '50% 50%',
+    stagger: .1,
+    ease: "power2"
+  })
+
+
+
+
+
+  })
+
 
 </script>
 
@@ -86,11 +208,11 @@
  .chartcontainer {
    padding: 0em 2em;
    text-align: center;
-   line-height: 10vh;
  }
 
  .chart-container {
    display: flex;
+   flex-wrap: nowrap;
    width: 500vw;
  }
 
@@ -98,6 +220,7 @@
      display: flex;
      flex-direction: column;
      height: 80vh;
+     width: 100vw;
      flex: 1;
      justify-content: space-between;
      padding: 1em;
@@ -155,9 +278,9 @@
     <h1>To Our Sisters</h1>
     <p>It's an opportunity to shout out the amazing work done by amazing women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children's persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but also curious to see how view points differ as you grow up and live in different seasons of your life</p>
   </div>
-  <div class= "text-block">
+  <div class= "text-block count">
     <p>So I surveyed</p>
-    <h2> {count} people</h2>
+    <h2 class="cnt" data-number={count}> 0 people</h2>
     <p>All in different communities from both single parent and couple parent house holds to see the impact of their mother in their life. I asked them 3 questions:</p>
     <p>Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p>
     <p>On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life </p>
@@ -176,7 +299,7 @@
     <div class="chart-container">
       <section class= "intro chart-block">
         <h1>Breaking down the respondents</h1>
-        <SF data={wordat} />
+        <SF data={wordat} np={forcepower}/>
       </section>
       <section class="c1 chart-block">
         <h1 class="anim">Breaking down the responses by ethnic background we see:</h1>

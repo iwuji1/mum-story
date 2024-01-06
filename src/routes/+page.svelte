@@ -19,6 +19,7 @@
   let data;
 
   onMount(async () => {
+
     try {
       const response = await fetch("/.netlify/functions/queryResults");
       if (!response.ok) {
@@ -29,6 +30,23 @@
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.create({
+      trigger: '.intro-container',
+      start:"center 50%",
+      end:"bottom 0%",
+
+      onEnter: () => {
+       gsap.to('.intro-container', { duration: 3.0, backgroundColor: '#ee3423'})
+      },
+
+     onLeaveBack: () => {
+       gsap.to('.intro-container', { duration: 1.0, backgroundColor: '#000000'})
+     },
+   })
+
   })
 
 </script>
@@ -118,5 +136,15 @@
     <Pintro data={data} />
     <Comments data={data}/>
   {/if}
+
+  <div class="intro-container">
+    <div class="title-img">
+      <WMimg/>
+    </div>
+    <div class="title-text">
+      <h1>To Our Mothers</h1>
+      <p>Reflecting on Motherhood for BHM 2023</p>
+    </div>
+  </div>
 
 </div>

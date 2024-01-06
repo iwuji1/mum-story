@@ -41,6 +41,8 @@
       }
     })
 
+
+
     facts.forEach(function(elem, i) {
       gsap.set(elem, {position: "absolute", top: 0});
 
