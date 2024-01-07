@@ -7,8 +7,6 @@
   import { fade } from "svelte/transition";
   import { onMount } from 'svelte';
   import gsap from 'gsap';
-  import Ftext from "$lib/Data/force_text.js";
-  import Scrolly from "$lib/helpers/Scrolly.svelte";
 
   export let data;
 
