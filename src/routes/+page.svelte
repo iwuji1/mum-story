@@ -138,6 +138,5 @@ img {
     <Pintro data={data} />
     <Comments data={data}/>
   {/if}
-  <!-- <Stars /> -->
 
 </div>
