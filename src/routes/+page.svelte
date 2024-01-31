@@ -11,10 +11,10 @@
   import Fam from '$lib/components/family.svelte';
   import Vbar from '$lib/components/vbar.svelte';
   import Pintro from '$lib/components/pub_intro.svelte';
-  import Fetcher from '$lib/components/DataFetcher.svelte';
   import Comments from '$lib/components/comment_map.svelte';
-  import Test from '$lib/components/test_force.svelte';
-
+  import Deskimg from '$lib/assets/Mothers_Desktop.png';
+  import Tabletimg from '$lib/assets/Mothers_tablet.png';
+  import Phoneimg from '$lib/assets/Mothers_mobile.png';
 
   let data;
 
@@ -33,20 +33,6 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.create({
-      trigger: '.intro-container',
-      start:"center 50%",
-      end:"bottom 0%",
-
-      onEnter: () => {
-       gsap.to('.intro-container', { duration: 3.0, backgroundColor: '#ee3423'})
-      },
-
-     onLeaveBack: () => {
-       gsap.to('.intro-container', { duration: 1.0, backgroundColor: '#000000'})
-     },
-   })
-
   })
 
 </script>
@@ -59,12 +45,14 @@
 
 .intro-container {
   display: flex;
-  width: 100vw;
   height: 100vh;
   flex-direction: row;
-  background-color: #000000;
   margin: auto;
   padding: 0%;
+  background-image: url('$lib/assets/Mothers_Desktop.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .title-img {
@@ -97,7 +85,15 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 1000px) {
+img {
+  width: 100vw;
+}
+
+@media screen and (max-width: 780px) {
+  .intro-container {
+    background-image: url('$lib/assets/Mothers_tablet.png');
+  }
+
   .title-text {
     transform: translate(0vw, 0vh);
   }
@@ -115,13 +111,19 @@
 
 }
 
+@media screen and (max-width: 400px) {
+  .intro-container {
+    background-image: url('$lib/assets/Mothers_mobile.png');
+  }
+
+}
+
 </style>
 
 <div class="Page-container">
 
   <div class="intro-container">
     <div class="title-img">
-      <WMimg/>
     </div>
     <div class="title-text">
       <h1>To Our Mothers</h1>
@@ -136,15 +138,6 @@
     <Pintro data={data} />
     <Comments data={data}/>
   {/if}
-
-  <div class="intro-container">
-    <div class="title-img">
-      <WMimg/>
-    </div>
-    <div class="title-text">
-      <h1>To Our Mothers</h1>
-      <p>Reflecting on Motherhood for BHM 2023</p>
-    </div>
-  </div>
+  <Stars />
 
 </div>

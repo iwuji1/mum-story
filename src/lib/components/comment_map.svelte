@@ -98,8 +98,6 @@ onMount(() => {
   steps.forEach(function(elem, i) {
     gsap.set(elem, {position: "absolute", top: "40%", width:"40%"});
 
-    console.log(elem)
-
     tl.from(
       elem.querySelector('.step-content'), {autoAlpha:0, translateY: 100}, i)
 
@@ -115,11 +113,9 @@ onMount(() => {
     toggleClass: "active",
     onEnter: () => {
       currentStep = 0;
-      console.log(currentStep)
     },
     onLeave: () => {
       currentStep = 4;
-      console.log(currentStep)
     },
     onEnterBack: () => {
       currentStep = 0;

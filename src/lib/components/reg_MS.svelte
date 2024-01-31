@@ -66,12 +66,6 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
 <Legend {cScale} {rmdat} bind:hoveredContinent />
   <svg class="RM_map">
     <g class="inner-chart" transform="translate({margin.left}, {margin.top})" on:mouseleave={() => (hovered = null)}>
-    {#each conts as country}
-        <path d={path(country)}
-        id={country.properties.CONTINENT}
-        fill="black"
-        stroke="white" />
-    {/each}
     {#each rmdat as dat}
       {#each conts as country}
         {#if dat.Region == country.properties.CONTINENT}

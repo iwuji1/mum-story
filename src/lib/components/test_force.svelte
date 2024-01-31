@@ -9,8 +9,6 @@ import { onMount } from 'svelte';
 let width = window.innerWidth;
 let height = window.innerHeight;
 
-export let data;
-
 
   let nodes = [];
 

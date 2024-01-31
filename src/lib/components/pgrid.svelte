@@ -29,7 +29,7 @@
   svg {
     width: 8vw;
     height: 25vh;
-    fill: #ee3423;
+    fill: #ff4f1d;
   }
 
   .sqre {
@@ -38,12 +38,12 @@
   }
 
   .mother {
-    fill: #ee3423;
+    fill: #ff4f1d;
     transform: scale(1.2)
   }
 
   .farther {
-    fill: #2f9744;
+    fill: #ffd502;
     transform: scale(1.2)
   }
 
@@ -58,7 +58,7 @@
       transform: scale(0.5)
     }
 
-    .farther{
+    .farther {
       transform: scale(0.5)
     }
 

@@ -84,7 +84,7 @@
         y={yScale(d.Ethnic_group)}
         width={cScale(d.couple_parents)}
         height={yScale.bandwidth()/2}
-        fill="#ee3423"
+        fill="#ff4f1d"
         />
       <rect
         class="cbars"
@@ -93,7 +93,7 @@
         y={yScale(d.Ethnic_group) + yScale.bandwidth()/2}
         width={cScale(d.single_parents)}
         height={yScale.bandwidth()/2}
-        fill="#2f9744"
+        fill="#ffd502"
         />
     {/each}
 

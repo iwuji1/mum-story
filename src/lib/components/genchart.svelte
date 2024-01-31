@@ -50,7 +50,7 @@ svg {
       cx={xScale(d["Gender"]) + xScale.bandwidth() }
       cy={xScale.bandwidth()}
       r={sScale(d.Freq)}
-      fill="#ee3423"
+      fill="#ffd502"
       />
     <text class="gen-txt" text-anchor="middle" x={xScale(d["Gender"]) + xScale.bandwidth() / 2} dy=".3em" y={xScale.bandwidth()}>{d["Gender"]}</text>
   {/each}

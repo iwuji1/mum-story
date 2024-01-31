@@ -56,13 +56,16 @@
 </script>
 
 <svelte:head>
-<title>Home Page</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 </svelte:head>
 
 <style>
+  .BHM {
+    background-color: #000000;
+  }
+
   .BHM .point{
     display: flex;
     align-items: center;
@@ -72,7 +75,6 @@
 
   .BHM .wrapper {
     height: 100vh;
-    background-color: #ee3423;
   }
 
   .point {

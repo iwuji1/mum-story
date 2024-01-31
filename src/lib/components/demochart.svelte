@@ -55,7 +55,7 @@ svg {
       y={yScale(d.Freq)}
       width={xScale.bandwidth()}
       height={yScale(0) - yScale(d.Freq)}
-      fill="#ee3423"
+      fill="#ffd502"
       />
   {/each}
 </svg>

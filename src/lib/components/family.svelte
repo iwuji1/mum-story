@@ -46,12 +46,12 @@
     facts.forEach(function(elem, i) {
       gsap.set(elem, {position: "absolute", top: 0});
 
-      tl.from(elem.querySelector('.fact-img'), {autoAlpha:0, scale: 0}, i)
+      tl.from(elem.querySelector('.fact-img'), {autoAlpha:0, translateY: 100}, i)
       tl.from(elem.querySelector('.fact-text'), {autoAlpha:0, translateY: 100}, i)
 
       if (i != facts.length-1) {
         tl.to(elem.querySelector('.fact-text'), {autoAlpha:0, translateY:-100}, i+0.75)
-        tl.to(elem.querySelector('.fact-img'), {autoAlpha:0, scale:0}, i+ 0.75)
+        tl.to(elem.querySelector('.fact-img'), {autoAlpha:0, translateY: -100}, i+ 0.75)
       }
     });
 })

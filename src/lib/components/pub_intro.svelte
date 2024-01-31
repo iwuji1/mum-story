@@ -30,7 +30,6 @@
     let numbers = document.querySelectorAll(".t-container");
 
     let sections = gsap.utils.toArray('.chart-block')
-    console.log(sections)
 
     var tl2 = gsap.timeline({
       scrollTrigger: {
@@ -62,8 +61,6 @@
         end: "+=3000"
       }
   });
-
-  ScrollTrigger.defaults({markers: {startColor: "white", endColor: "white"}});
 
   ScrollTrigger.create({
     trigger: ".feelsforce",
@@ -195,13 +192,13 @@
    text-align: justify;
    margin: auto;
    font-family: "helvetica";
-   background-color: #ffd502;
+   background-color: #ff4f1d;
  }
 
  .wrapper {
    min-height: 100vh;
    overflow-x: hidden;
-   background-color: #ffd502;
+   background-color: #ff4f1d;
    font-family: "helvetica";
  }
 
@@ -229,7 +226,7 @@
  }
 
  .chart-block h1 {
-   color: #2f9744;
+   color: #ffd502;
    text-transform:uppercase;
    margin: 0%;
  }
@@ -246,7 +243,7 @@
  }
 
  .text-block h1 {
-   color: #2f9744;
+   color: #ffd502;
    text-transform:uppercase;
  }
 

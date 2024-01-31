@@ -88,7 +88,7 @@
         y={yScale(d.percentage)}
         width={xScale.bandwidth()}
         height={yScale(0) - yScale(d.percentage)}
-        fill="#ee3423"
+        fill="#ff4f1d"
         />
     {/each}
 
