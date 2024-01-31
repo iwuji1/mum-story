@@ -1,6 +1,6 @@
 <script>
   import P5 from 'p5-svelte';
-  import mum_face from '$lib/assets/mothers head3.png'
+  import mum_face from '$lib/assets/mothers_head3.png'
 
   let width = 584;
   let height = 720;
