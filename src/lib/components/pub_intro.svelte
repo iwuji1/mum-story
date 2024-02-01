@@ -149,6 +149,17 @@
     ease:"power2"
   });
 
+  let regsectionscroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".RM_map",
+      containerAnimation: scrollTween,
+      start: "center 80%",
+      end: "center 20%",
+      toggleActions: "play complete pause reset",
+      id: "1",
+    }
+  })
+
 
   })
 
