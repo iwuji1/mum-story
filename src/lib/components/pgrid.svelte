@@ -47,11 +47,29 @@
     transform: scale(1.2)
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 780px) {
 
     svg {
       width: 20vw;
       height: 10vh;
+      margin: 5%;
+    }
+
+    .mother {
+      transform: scale(0.5)
+    }
+
+    .farther {
+      transform: scale(0.5)
+    }
+
+  }
+
+  @media screen and (max-width: 400px) {
+    svg {
+      width: 15vw;
+      height: 10vh;
+      margin: 5%;
     }
 
     .mother {

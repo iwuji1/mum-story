@@ -128,7 +128,7 @@
     color: #000000;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 780px) {
     .facts-container .fact{
       flex-direction: column;
       align-items: center;
@@ -154,8 +154,13 @@
     }
 
     h1 {
-      font-size: 2.5em;
-      margin: auto;
+      font-size: 5em;
+      margin: 20%;
+    }
+
+    p {
+      font-size: 3rem;
+      margin: 10%;
     }
 
     svg {
@@ -164,7 +169,7 @@
     }
 
     .st1 {
-      transform: translate(40%, 35%) scale(0.25);
+      transform: translate(40%, 35%) scale(0.5);
     }
 
     p {
@@ -172,6 +177,22 @@
       margin: auto;
     }
 }
+
+  @media screen and (max-width: 400px) {
+    h1 {
+      font-size: 5em;
+      margin: 10%;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 10%;
+    }
+
+    .st1 {
+      transform: translate(20%, 10%)scale(0.5);
+    }
+  }
 
 </style>
 

@@ -34,7 +34,6 @@
 <style>
  .She-container {
    display: flex;
-   height: 100vh;
    width: 100vw;
  }
 
@@ -51,9 +50,17 @@ span {
   background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 780px) {
   h2 {
-    margin: auto;
+    margin: 10%;
+
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h2 {
+    margin: 5%;
+
   }
 }
 

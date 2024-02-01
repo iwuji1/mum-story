@@ -40,6 +40,36 @@ svg {
   height: 100vh;
 }
 
+@media screen and (max-width: 780px) {
+  .gencircle {
+    transform: translate(0%, 0%) scale(0.5);
+  }
+
+  .gen-txt {
+    transform: translate(0%, 0%) scale(0.5);
+  }
+  svg {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .gen-txt {
+    transform: translate(-5%, 0%) scale(0.5);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+}
+
 </style>
 
 <svg class="gendbar">

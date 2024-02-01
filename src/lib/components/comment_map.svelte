@@ -182,6 +182,69 @@ onMount(() => {
 
   }
 
+  @media screen and (max-width: 780px) {
+    .lesson-chart .wrapper {
+      flex-direction: column;
+    }
+
+    .chart-img {
+      flex-basis: 100%;
+    }
+
+    .chart-text {
+      flex-basis: 100%;
+      height: 50vh;
+      margin: auto;
+      width: auto;
+      align-content: center;
+    }
+
+    svg {
+      width: 100vw;
+      height: 50vh;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+
+  }
+
+  @media screen and (max-width: 400px) {
+    .lesson-chart .wrapper {
+      flex-direction: column;
+    }
+
+    .lesson-chart .step {
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+      height: 50vh;
+    }
+
+    .chart-img {
+      flex-basis: 100%;
+    }
+
+    .chart-text {
+      flex-basis: 100%;
+      height: 50vh;
+      margin: auto;
+      width: auto;
+      align-content: center;
+    }
+
+    svg {
+      width: 100vw;
+      height: 50vh;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
 </style>
 
 

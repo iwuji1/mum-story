@@ -25,8 +25,8 @@ let borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
 
 let conts = continents.features;
 
-let width = 1000;
-let height = 600;
+let width = 800;
+let height = 400;
 let hovered;
 let hoveredContinent;
 const margin = { top: 20, right: 20, left: 120, bottom: 20 };
@@ -57,6 +57,24 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
   svg {
     width: 80vw;
     height: 60vh;
+  }
+
+  @media screen and (max-width: 780px) {
+
+    svg {
+      width: 100vw;
+      height: 50vh;
+    }
+
+  }
+
+  @media screen and (max-width: 400px) {
+
+    svg {
+      width: 100vw;
+      height: 50vh;
+    }
+
   }
 
 </style>

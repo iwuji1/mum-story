@@ -23,7 +23,7 @@ let innerHeight = height - margin.top - margin.bottom;
 $: xDomain = data.map(function(d) {return d["Word"]});
 
 $: sScale = scaleLinear().domain([0, max(data, function(d) {return d.Freq})]).range([20,100]);
-$: cScale = d3.scaleOrdinal().domain(xDomain).range(["#ffd502","#ff2ac4","#ff0000","#000000","#ffffff"]);
+$: cScale = d3.scaleOrdinal().domain(xDomain).range(["#ffd502","#5d00fe","#0020fe","#000000","#ffffff", "#94e202"]);
 
 const simulation = forceSimulation(data); // Instantiate a barebones simulation
 
@@ -66,6 +66,32 @@ svg {
 
 text {
   transform: translate(25%, -20%)
+}
+
+@media screen and (max-width: 780px) {
+
+  svg {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  text {
+    transform: translate(0%, 0%) scale(0.5)
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  svg {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  text {
+    transform: translate(0%, 0%) scale(0.5)
+  }
+
 }
 
 </style>

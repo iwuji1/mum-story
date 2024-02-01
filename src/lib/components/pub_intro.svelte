@@ -149,27 +149,6 @@
     ease:"power2"
   });
 
-  let regsectionscroll = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".RM_map",
-      containerAnimation: scrollTween,
-      start: "center 80%",
-      end: "center 20%",
-      toggleActions: "play complete pause reset",
-      id: "1",
-    }
-  })
-
-  regsectionscroll.from("path.regpath", {
-    scale:0,
-    transformOrigin: '50% 50%',
-    stagger: .1,
-    ease: "power2"
-  })
-
-
-
-
 
   })
 
@@ -226,7 +205,7 @@
  }
 
  .chart-block h1 {
-   color: #ffd502;
+   color: #ffffff;
    text-transform:uppercase;
    margin: 0%;
  }
@@ -243,7 +222,7 @@
  }
 
  .text-block h1 {
-   color: #ffd502;
+   color: #ffffff;
    text-transform:uppercase;
  }
 
@@ -251,8 +230,6 @@
    text-align: center;
    background-color: #000000;
    color: #ffffff;
-   margin-left: 15%;
-   margin-right: 15%;
    padding-top: 2%;
    padding-bottom: 2%;
    font-size: 5rem;

@@ -61,16 +61,14 @@
 }
 
 .title-text {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transform: translate(20vw, 40vh);
   margin: auto;
 }
 
 .title-text h1 {
-  flex: 40%;
+  flex: 60%;
   font-family: sans-serif;
   font-size: 10em;
   align-self: center;
@@ -95,12 +93,11 @@ img {
   }
 
   .title-text {
-    transform: translate(0vw, 0vh);
+    text-align: center;
   }
 
   .title-text h1 {
     font-size: 5em;
-    flex: 10%;
   }
 
   .text-title p {

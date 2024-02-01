@@ -41,6 +41,36 @@ svg {
   height: 60vh;
 }
 
+@media screen and (max-width: 780px) {
+  .ethbars {
+    transform: translate(0%, 0%) scale(0.5);
+  }
+
+  .eth-txt {
+    transform: translate(0%, 0%) scale(0.5);
+  }
+  svg {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .eth-txt {
+    transform: translate(-5%, 0%) scale(0.5);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+}
+
 
 
 </style>

@@ -24,8 +24,8 @@
   "single_parents": 3}
   ]
 
-  let width = 800;
-  let height = 600;
+  let width = 600;
+  let height = 500;
 
   const margin = { top: 20, right: 20, left: 120, bottom: 20 };
   $: innerHeight = height - margin.top - margin.bottom;
@@ -53,21 +53,41 @@
 
   .chart-txt {
     fill: #ffffff;
-    transform: translate(0%, 15%);
+    transform: translate(5%, 10%);
     font-family: sans-serif;
   }
 
-  @media screen and (max-width: 1000px) {
+  p {
+    color: #ffffff;
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 780px) {
     .cbars {
       transform: translate(25%, 0%) scale(0.5);
     }
 
     .chart-txt {
-      transform: translate(0%, 0%) scale(0.5);
+      transform: translate(10%, -5%) scale(0.5);
     }
     svg {
       width: 100vw;
       height: 50vh;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+  }
+
+  @media screen and (max-width: 400px) {
+    .chart-txt {
+      transform: translate(10%, -5%) scale(0.5);
+    }
+
+    p {
+      font-size: 1rem;
     }
 
   }
@@ -76,7 +96,7 @@
 
   <svg class="hbar">
     {#each data as d}
-    <text class="chart-txt" text-anchor="start" x="0" dy=".3em" y={yScale(d.Ethnic_group) + yScale.bandwidth() / 2}>{d.Ethnic_group}</text>
+    <foreignObject class="chart-txt" x="0" dy=".3em" y={yScale(d.Ethnic_group) + yScale.bandwidth() / 2} height="50" width="100"><p>{d.Ethnic_group}</p></foreignObject>
       <rect
         class="cbars"
         id= {d.Ethnic_group}

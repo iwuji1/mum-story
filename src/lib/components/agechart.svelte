@@ -29,7 +29,7 @@
 }
 
 .age-txt {
-  fill: #ffffff;
+  color: #ffffff;
   transform: translate(38%, 3%);
   font-family: sans-serif;
 }
@@ -39,13 +39,55 @@ svg {
   height: 100vh;
 }
 
+@media screen and (max-width: 780px) {
+
+  svg {
+    width: 80vw;
+    height: 50vh;
+  }
+
+  .agebars {
+    transform: translate(20%, 0%)
+  }
+
+  .age-txt {
+    transform: translate(0%, 0%);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  svg {
+    width: 80vw;
+    height: 50vh;
+  }
+
+  .agebars {
+    transform: translate(20%, 0%)
+  }
+
+  .age-txt {
+    transform: translate(-7%, 0%);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+}
+
 </style>
 
 <div class="age-container">
 
   <svg class="agebar">
     {#each agedat as d}
-    <text class="age-txt" text-anchor="end" y={xScale(d["Age Group"]) + xScale.bandwidth() / 2} dy=".3em" x="0">{d["Age Group"]}</text>
+    <foreignObject class="age-txt" x=0 dy=".3em" y={xScale(d["Age Group"]) + xScale.bandwidth() / 2} width={xScale.bandwidth()} height="180"><p>{d["Age Group"]}</p></foreignObject>
       <rect
         class="agebars"
         id= {d["Age Group"]}
@@ -53,7 +95,7 @@ svg {
         y={xScale(d["Age Group"]) + xScale.bandwidth()/2}
         width={yScale(d.Freq)}
         height={xScale.bandwidth()/2}
-        fill="#ee3423"
+        fill="#ffd502"
         />
     {/each}
   </svg>

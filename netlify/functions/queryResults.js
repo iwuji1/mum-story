@@ -4,6 +4,15 @@ const { BigQuery } = require('@google-cloud/bigquery');
 exports.handler = async function (event, context) {
   try {
 
+    // let key;
+    // if (process.env.CONTEXT != 'dev') {
+    //   // Use the credentials from the environment variable in production
+    //   key = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+    // } else {
+    //   // Load credentials from the local JSON file during development
+    //   key = require("./our-access-404113-ba8e70863a01.json");
+    // }
+
     const key = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
     const bigquery = new BigQuery({

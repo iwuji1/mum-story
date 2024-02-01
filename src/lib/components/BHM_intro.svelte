@@ -106,7 +106,7 @@
     font-family: sans-serif;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 780px) {
 
     .BHM .wrapper {
       width: 100vw;
@@ -120,12 +120,14 @@
       width: 100vw;
     }
     img {
-      margin: 0%;
-      width: 100vw;
+      margin: 10%;
     }
 
     p {
-
+      margin: 10%;
+      font-size: 3rem;
+      font-family: sans-serif;
+      text-align: center;
     }
 
     .point article {
@@ -133,10 +135,25 @@
     }
 
     .point img {
-      flex-basis: 50%;
-      max-width: 100vw;
+      flex-basis: 20%;
+      max-width: 80vw;
     }
 }
+
+@media screen and (max-width: 400px) {
+  p {
+    margin: 15%;
+    font-size: 3rem;
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  img {
+    width: 90vw;
+  }
+
+}
+
 
 </style>
 
