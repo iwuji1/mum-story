@@ -59,7 +59,7 @@
 
   p {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   @media screen and (max-width: 780px) {
@@ -96,7 +96,7 @@
 
   <svg class="hbar">
     {#each data as d}
-    <foreignObject class="chart-txt" x="0" dy=".3em" y={yScale(d.Ethnic_group) + yScale.bandwidth() / 2} height="50" width="100"><p>{d.Ethnic_group}</p></foreignObject>
+    <foreignObject class="chart-txt" x="0" dy=".3em" y={yScale(d.Ethnic_group) + yScale.bandwidth() / 2} height="100" width="100"><p>{d.Ethnic_group}</p></foreignObject>
       <rect
         class="cbars"
         id= {d.Ethnic_group}

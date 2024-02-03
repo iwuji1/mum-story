@@ -102,7 +102,7 @@
 
   p {
     margin: 5%;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: sans-serif;
   }
 

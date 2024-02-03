@@ -39,15 +39,18 @@
 
  h2 {
    text-align: center;
+   font-family: sans-serif;
    margin: auto;
    font-size: 2rem;
    margin-left: 15%;
    margin-right: 15%;
+   color: #ffffff;
  }
 
 span {
   background-image: linear-gradient(yellow, yellow);
   background-repeat: no-repeat;
+  color: #000000;
 }
 
 @media screen and (max-width: 780px) {
@@ -68,5 +71,5 @@ span {
 
 <div class="She-container">
   <!-- <h2>Whilst there are some amazing stories of incredible women, I wanted to pay homage to some everyday <mark class="text-highlight">Sheroes</mark> in Mothers</h2> -->
-  <h2>Whilst there are some amazing stories of incredible women, I wanted to pay homage to some everyday <s>Heroes</s><span>Sheroes</span> in Mothers</h2>
+  <h2>Whilst there are some amazing stories of incredible women, I wanted to pay homage to some everyday <s>Heroes</s> <span>Sheroes</span> in Mothers</h2>
 </div>

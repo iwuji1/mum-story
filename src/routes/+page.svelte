@@ -6,6 +6,7 @@
 
   import WMimg from '$lib/components/wm_img.svelte';
   import Stars from '$lib/components/star.svelte';
+  import Poem from '$lib/components/poem.svelte';
   import BHM from '$lib/components/BHM_intro.svelte';
   import She from '$lib/components/Sheroes.svelte';
   import Fam from '$lib/components/family.svelte';
@@ -41,15 +42,17 @@
 
   :global(body){
     margin: 0;
+    background-color: #000000;
   }
 
 .intro-container {
   display: flex;
   height: 100vh;
   flex-direction: row;
+  justify-content: flex-end;
   margin: auto;
   padding: 0%;
-  background-image: url('$lib/assets/Mothers_Desktop.png');
+  background-image: url('$lib/assets/Mothers_Desktop_Desktop.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,15 +66,13 @@
 .title-text {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin: auto;
+  justify-content: center;
+  width: 50vw;
 }
 
 .title-text h1 {
-  flex: 60%;
   font-family: sans-serif;
   font-size: 10em;
-  align-self: center;
   margin: 0%;
   color: #ffd502
 }
@@ -79,7 +80,6 @@
 .title-text p {
   font-family: sans-serif;
   font-size: 2em;
-  align-self: center;
   color: #ffffff;
 }
 
@@ -94,6 +94,7 @@ img {
 
   .title-text {
     text-align: center;
+    width: 100vw;
   }
 
   .title-text h1 {
@@ -113,6 +114,11 @@ img {
     background-image: url('$lib/assets/Mothers_mobile.png');
   }
 
+  .title-text {
+    text-align: center;
+    width: 100vw;
+  }
+
 }
 
 </style>
@@ -124,13 +130,14 @@ img {
     </div>
     <div class="title-text">
       <h1>To Our Mothers</h1>
-      <p>Reflecting on Motherhood for BHM 2023</p>
+      <p>Reflecting on Motherhood for Black History Month 2024</p>
     </div>
   </div>
 
   <BHM />
   <She />
   <Fam />
+  <Poem />
   {#if data}
     <Pintro data={data} />
     <Comments data={data}/>

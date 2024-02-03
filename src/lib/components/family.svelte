@@ -158,11 +158,6 @@
       margin: 20%;
     }
 
-    p {
-      font-size: 3rem;
-      margin: 10%;
-    }
-
     svg {
       width: 100vw;
       height: 50vh;
