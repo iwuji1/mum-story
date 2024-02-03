@@ -60,7 +60,7 @@ import { onMount } from 'svelte';
     .p-container {
       flex-direction: column;
       height: 300vh;
-      background-image: url('$lib/assets/poem tablet.png');
+      background-image: url('$lib/assets/Poem tablet.png');
       width: auto;
     }
 
@@ -73,7 +73,7 @@ import { onMount } from 'svelte';
     .p-container {
       flex-direction: column;
       height: 300vh;
-      background-image: url('$lib/assets/poem phone.png');
+      background-image: url('$lib/assets/Poem phone.png');
       width: auto;
     }
 
