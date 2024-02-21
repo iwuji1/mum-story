@@ -43,7 +43,7 @@ svg {
 
 @media screen and (max-width: 780px) {
   .ethbars {
-    transform: translate(0%, 0%) scale(0.5);
+    transform: translate(0%, 0%) scale(1);
   }
 
   .eth-txt {
@@ -61,8 +61,11 @@ svg {
 }
 
 @media screen and (max-width: 400px) {
+  .ethbars {
+    transform: translate(6%, 0%) scale(0.5);
+  }
   .eth-txt {
-    transform: translate(-5%, 0%) scale(0.5);
+    transform: translate(0%, 0%) scale(0.5);
   }
 
   p {

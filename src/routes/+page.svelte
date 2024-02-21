@@ -87,9 +87,33 @@ img {
   width: 100vw;
 }
 
+.end-container {
+  display: none;
+}
+
+.col-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-content {
+  font-family: sans-serif;
+  font-size: 1em;
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+
+
+
 @media screen and (max-width: 780px) {
   .intro-container {
     background-image: url('$lib/assets/Mothers_tablet.png');
+  }
+
+  .end-container {
+    display: block;
+    background-color: #000000;
   }
 
   .title-text {
@@ -106,6 +130,10 @@ img {
     text-align: center;
   }
 
+  .end{
+    display: none;
+  }
+
 
 }
 
@@ -117,6 +145,24 @@ img {
   .title-text {
     text-align: center;
     width: 100vw;
+  }
+
+  .end-container {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    background-color: #000000;
+    margin: auto;
+    height: 100vh;
+  }
+
+  .p-content {
+    margin: auto;
+    padding: 5%;
+  }
+
+  .end{
+    display: none;
   }
 
 }
@@ -140,7 +186,26 @@ img {
   <Poem />
   {#if data}
     <Pintro data={data} />
+    <div class="end">
     <Comments data={data}/>
+    </div>
   {/if}
+
+  <div class="end-container">
+   <div class="col-content">
+    <div>
+      <p class="p-content">The internet is an amazing space to learn about details and ideas that you may not come across in your day to day activities, that makes it both a blessing and a curses</p>
+    </div>
+    <div>
+      <p class="p-content">The rise of rather negative conversations on the internet about mothers means that people out there in their various situations are being exposed to a conversation that is important but it no ways universal</p>
+    </div>
+    <div>
+      <p class="p-content">hopefully reading this story opened up the conversation to see a more nuanced illustration of the role of mothers in society and what they are actually doing. No one is perfect, but there is a lot to learn from those who went before us</p>
+    </div>
+    <div>
+      <p class="p-content">on our Desktop version hover over the circles to the left, you'll see someone of the many lessons from those who were survey for the story, see if any of the lessons remind you of your mum, because many certainly reminded me of mine</p>
+   </div>
+  </div>
+  </div>
 
 </div>

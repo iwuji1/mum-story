@@ -60,8 +60,12 @@ svg {
 }
 
 @media screen and (max-width: 400px) {
+  .gencircle {
+    transform: translate(0%, 0%) scale(0.5);
+  }
+
   .gen-txt {
-    transform: translate(-5%, 0%) scale(0.5);
+    transform: translate(18%, 0%) scale(0.5);
   }
 
   p {

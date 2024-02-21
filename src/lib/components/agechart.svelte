@@ -47,11 +47,11 @@ svg {
   }
 
   .agebars {
-    transform: translate(20%, 0%)
+    transform: translate(20%, 0%) scale(0.5)
   }
 
   .age-txt {
-    transform: translate(0%, 0%);
+    transform: translate(15%, 5%) scale(0.5);
   }
 
   p {
@@ -63,16 +63,16 @@ svg {
 @media screen and (max-width: 400px) {
 
   svg {
-    width: 80vw;
+    width: 100vw;
     height: 50vh;
   }
 
   .agebars {
-    transform: translate(20%, 0%)
+    transform: translate(20%, 0%) scale(0.5)
   }
 
   .age-txt {
-    transform: translate(-7%, 0%);
+    transform: translate(15%, 5%) scale(0.5);
   }
 
   p {
@@ -87,7 +87,7 @@ svg {
 
   <svg class="agebar">
     {#each agedat as d}
-    <foreignObject class="age-txt" x=0 dy=".3em" y={xScale(d["Age Group"]) + xScale.bandwidth() / 2} width={xScale.bandwidth()} height="180"><p>{d["Age Group"]}</p></foreignObject>
+    <foreignObject class="age-txt" x="-50" dy=".3em" y={xScale(d["Age Group"]) + xScale.bandwidth() / 5} width={xScale.bandwidth()} height="180"><p>{d["Age Group"]}</p></foreignObject>
       <rect
         class="agebars"
         id= {d["Age Group"]}

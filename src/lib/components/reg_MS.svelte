@@ -34,32 +34,40 @@ const margin = { top: 20, right: 20, left: 120, bottom: 20 };
 const subgroups = ["Africa", "Asia", "North America", "Europe","South America", "Oceania", "Antarctica"];
 
 $: projection = geoMercator()
-    .scale(width/8)
+    .scale(width/6)
     .rotate([0, 0, 0])
     .translate([width / 2, height/1.5]);
 
 $: path = geoPath(projection); // This is new!
 
 $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.RegFreq})])
-  .interpolator(d3.interpolatePuRd);
+  .interpolator(d3.interpolateYlOrBr);
 
 </script>
 
 <style>
 
 .map-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
 }
 
   svg {
-    width: 80vw;
-    height: 60vh;
+    width: 50vw;
+    height: 100vh;
+  }
+
+  #ctry {
+    transform: translate(0%, 20%)
   }
 
   @media screen and (max-width: 780px) {
+
+    #ctry {
+      transform: translate(15%, 40%) scale(.4);
+    }
 
     svg {
       width: 100vw;
@@ -70,6 +78,9 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
 
   @media screen and (max-width: 400px) {
 
+    #ctry {
+      transform: translate(15%, 40%) scale(.4);
+    }
     svg {
       width: 100vw;
       height: 50vh;
@@ -81,34 +92,17 @@ $: cScale = d3.scaleSequential().domain([0, max(rmdat, function(d) {return d.Reg
 
 <div class="map-container">
 
-<Legend {cScale} {rmdat} bind:hoveredContinent />
   <svg class="RM_map">
-    <g class="inner-chart" transform="translate({margin.left}, {margin.top})" on:mouseleave={() => (hovered = null)}>
     {#each rmdat as dat}
       {#each conts as country}
         {#if dat.Region == country.properties.CONTINENT}
-          <path
-          class="regpath"
-          id={dat.Region}
-          d={path(country)}
+          <path d={path(country)}
+          id= "ctry"
           fill={cScale(dat.RegFreq)}
-          stroke={hovered || hoveredContinent
-            ? hovered === dat || hoveredContinent === dat.Region
-              ? "black"
-              : "transparent"
-            : "white"}
-          opacity={hovered || hoveredContinent
-            ? hovered === dat || hoveredContinent === dat.Region
-              ? 1
-              : 0.3
-            : 1}
-          on:mouseover={() => hovered = dat}
-          on:focus={() => hovered = dat}
+          stroke="black"
           tabindex="0" />
         {/if}
       {/each}
     {/each}
-    </g>
-
   </svg>
 </div>

@@ -62,7 +62,9 @@ span {
 
 @media screen and (max-width: 400px) {
   h2 {
-    margin: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 25%;
 
   }
 }
@@ -70,6 +72,5 @@ span {
 </style>
 
 <div class="She-container">
-  <!-- <h2>Whilst there are some amazing stories of incredible women, I wanted to pay homage to some everyday <mark class="text-highlight">Sheroes</mark> in Mothers</h2> -->
   <h2>Whilst there are some amazing stories of incredible women, I wanted to pay homage to some everyday <s>Heroes</s> <span>Sheroes</span> in Mothers</h2>
 </div>

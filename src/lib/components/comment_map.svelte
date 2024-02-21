@@ -130,6 +130,9 @@ onMount(() => {
 </script>
 
 <style>
+  .lesson-chart2 {
+    visibility: hidden;
+  }
 
   .lesson-chart .wrapper {
     display: flex;
@@ -182,7 +185,28 @@ onMount(() => {
 
   }
 
+  .col-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-content {
+    font-family: sans-serif;
+    font-size: 1em;
+    margin: auto;
+    color: white;
+    text-align: center;
+  }
+
   @media screen and (max-width: 780px) {
+    .lesson-chart {
+      visibility: hidden;
+    }
+
+    .lesson-chart2 {
+      visibility: visible;
+    }
+
     .lesson-chart .wrapper {
       flex-direction: column;
     }
@@ -212,6 +236,14 @@ onMount(() => {
   }
 
   @media screen and (max-width: 400px) {
+    .lesson-chart {
+      visibility: hidden;
+    }
+
+    .lesson-chart2 {
+      visibility: visible;
+    }
+
     .lesson-chart .wrapper {
       flex-direction: column;
     }
