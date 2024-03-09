@@ -65,7 +65,7 @@ svg {
 }
 
 text {
-  transform: translate(25%, -20%)
+  transform: translate(25%, -10%) scale(0.8)
 }
 
 @media screen and (max-width: 780px) {
@@ -85,11 +85,11 @@ text {
 
   svg {
     width: 100vw;
-    height: 50vh;
+    height: 70vh;
   }
 
   text {
-    transform: translate(0%, 0%) scale(0.5)
+    transform: translate(-5%, 0%) scale(0.5)
   }
 
 }

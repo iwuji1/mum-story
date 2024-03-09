@@ -325,11 +325,11 @@ onMount(() => {
       </div>
 
       <div class="step" id="step-3">
-        <p class="step-content">hopefully reading this story opened up the conversation to see a more nuanced illustration of the role of mothers in society and what they are actually doing. No one is perfect, but there is a lot to learn from those who went before us</p>
+        <p class="step-content">Hopefully reading this story opened up the conversation to see a more nuanced illustration of the role of mothers in society and what they are actually doing. No one is perfect, but there is a lot to learn from those who went before us</p>
       </div>
 
       <div class="step" id="step-4">
-        <p class="step-content">if you hover over the circles to the left, you'll see someone of the many lessons from those who were survey for the story, see if any of the lessons remind you of your mum, because many curtainly reminded me of mine</p>
+        <p class="step-content">If you hover over the circles to the left, you'll see someone of the many lessons from those who were survey for the story, see if any of the lessons remind you of your mum, because many curtainly reminded me of mine</p>
       </div>
     </div>
   </div>

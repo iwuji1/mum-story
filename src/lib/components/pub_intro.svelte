@@ -51,14 +51,14 @@
     });
 
     let scrollTween = gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      xPercent: -105 * (sections.length - 1),
       ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
         trigger: ".chart-container",
         pin: true,
         scrub: 0.1,
         //snap: directionalSnap(1 / (sections.length - 1)),
-        end: "+=3000"
+        end: "+=4000"
       }
   });
 
@@ -66,7 +66,7 @@
     trigger: ".feelsforce",
     containerAnimation: scrollTween,
     start: "center 80%",
-    end: "center 10%",
+    end: "center 20%",
     onEnter: () => {
       forcepower=true;
     },
@@ -112,7 +112,7 @@
       start: "center 80%",
       end: "center 20%",
       toggleActions: "play complete pause reset",
-      id: "1",
+      id: "2",
     }
   })
 
@@ -121,11 +121,16 @@
     stagger: .1,
     ease: "power2"
   })
+  .from("line.ageaxis", {
+    opacity:0,
+    x: 2,
+    delay: -2,
+    ease: "power2"
+  })
   .from("text.age-txt", {
     opacity:0,
-    x:100,
     ease: "power2"
-  });
+  })
 
   let gensectionscroll = gsap.timeline({
     scrollTrigger: {
@@ -134,11 +139,17 @@
       start: "center 80%",
       end: "center 20%",
       toggleActions: "play complete pause reset",
-      id: "1",
+      id: "3",
     }
   })
 
   gensectionscroll.from("circle.gencircle", {
+    scale: 2,
+    transformOrigin: '50% 50%',
+    opacity: 0,
+    ease: "power2"
+  })
+  .from("path.gencircle", {
     scale: 2,
     transformOrigin: '50% 50%',
     opacity: 0,
@@ -156,7 +167,7 @@
       start: "center 80%",
       end: "center 20%",
       toggleActions: "play complete pause reset",
-      id: "1",
+      id: "4",
     }
   })
 
@@ -261,7 +272,7 @@
 
   <div class= "text-block">
     <h1>To Our Sisters</h1>
-    <p>It's an opportunity to shout out the amazing work done by amazing women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children's persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but also curious to see how view points differ as you grow up and live in different seasons of your life</p>
+    <p>This is an opporunity to shout out the amazing work done by women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children's persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but was also curious to see how view points differ as you grow up and live in different seasons of your life</p>
   </div>
   <div class= "text-block count">
     <p>So I surveyed</p>
@@ -283,7 +294,8 @@
   <div class="chartcontainer">
     <div class="chart-container">
       <section class= "intro chart-block">
-        <h1>Breaking down the respondents</h1>
+        <h1 class="anim">Breaking down the audience by location we see:</h1>
+        <RegMS rmdat={reg_Mstat}/>
         <SF data={wordat} np={forcepower}/>
       </section>
       <section class="c1 chart-block">
@@ -299,8 +311,8 @@
         <Gend gendat={gendat}/>
       </section>
       <section class= "c4 chart-block">
-        <h1 class="anim">And finally breaking down the audience by location we see:</h1>
-        <RegMS rmdat={reg_Mstat}/>
+        <h1 class="anim">And finally breaking down the audience by the words they associate with their parent:</h1>
+        <SF data={wordat} np={forcepower}/>
       </section>
     </div>
   </div>

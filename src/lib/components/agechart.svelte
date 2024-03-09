@@ -30,8 +30,14 @@
 
 .age-txt {
   color: #ffffff;
-  transform: translate(38%, 3%);
+  transform: translate(36%, 4%);
   font-family: sans-serif;
+}
+
+.ageaxis {
+  stroke: #ffffff;
+  stroke-width: 2px;
+  transform: translate(35.5%, 0%);
 }
 
 svg {
@@ -52,6 +58,12 @@ svg {
 
   .age-txt {
     transform: translate(15%, 5%) scale(0.5);
+  }
+
+  .ageaxis {
+    stroke: #ffffff;
+    stroke-width: 2px;
+    transform: translate(6%, -6%);
   }
 
   p {
@@ -88,6 +100,7 @@ svg {
   <svg class="agebar">
     {#each agedat as d}
     <foreignObject class="age-txt" x="-50" dy=".3em" y={xScale(d["Age Group"]) + xScale.bandwidth() / 5} width={xScale.bandwidth()} height="180"><p>{d["Age Group"]}</p></foreignObject>
+    <line class="ageaxis" x1="50" y1="50" x2="50" y2="660"/>
       <rect
         class="agebars"
         id= {d["Age Group"]}

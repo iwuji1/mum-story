@@ -24,8 +24,17 @@
 
 <style>
 
-.gencircle {
-  transform: translate(20%, 10%)
+
+#p45 {
+  fill: #ff2ac4;
+  transform: translate(20%, 40%) scale(2.16);
+  stroke: #000000;
+}
+
+#p25 {
+  fill: #ffd502;
+  transform: translate(50%, 45%) scale(1.2);
+  stroke: #000000;
 }
 
 .gen-txt {
@@ -41,12 +50,18 @@ svg {
 }
 
 @media screen and (max-width: 780px) {
-  .gencircle {
-    transform: translate(0%, 0%) scale(0.5);
+  #p45 {
+    fill: #ff2ac4;
+    transform: translate(3%, 0%) scale(1.8)
+  }
+
+  #p25 {
+    fill: #ffd502;
+    transform: translate(65%, 25%) scale(0.6)
   }
 
   .gen-txt {
-    transform: translate(0%, 0%) scale(0.5);
+    transform: translate(10%, 30%) scale(0.5);
   }
   svg {
     width: 100vw;
@@ -60,12 +75,19 @@ svg {
 }
 
 @media screen and (max-width: 400px) {
-  .gencircle {
-    transform: translate(0%, 0%) scale(0.5);
+
+  #p45 {
+    fill: #ff2ac4;
+    transform: translate(3%, 0%) scale(1.8)
+  }
+
+  #p25 {
+    fill: #ffd502;
+    transform: translate(65%, 25%) scale(0.6)
   }
 
   .gen-txt {
-    transform: translate(18%, 0%) scale(0.5);
+    transform: translate(10%, 30%) scale(0.5);
   }
 
   p {
@@ -78,14 +100,11 @@ svg {
 
 <svg class="gendbar">
   {#each gendat as d}
-    <circle
-      class="gencircle"
-      id= {d["Gender"]}
-      cx={xScale(d["Gender"]) + xScale.bandwidth() }
-      cy={xScale.bandwidth()}
-      r={sScale(d.Freq)}
-      fill="#ffd502"
-      />
+    <g>
+      <path id="p{d.Freq}" class="gencircle" d="M52.65,125.2h19.9c3.3,0,6-2.7,6-6V86.301h3.399c3.301,0,6-2.701,6-6V43.2c0-3.3-2.699-6-6-6H43.25c-3.3,0-6,2.7-6,6
+        v37.101c0,3.299,2.7,6,6,6h3.4V119.2C46.65,122.5,49.25,125.2,52.65,125.2z"/>
+      <circle id="p{d.Freq}" class="gencircle"  cx="62.55" cy="15.7" r="15.7"/>
+    </g>
     <text class="gen-txt" text-anchor="middle" x={xScale(d["Gender"]) + xScale.bandwidth() / 2} dy=".3em" y={xScale.bandwidth()}>{d["Gender"]}</text>
   {/each}
 </svg>

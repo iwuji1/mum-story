@@ -27,18 +27,18 @@
 <style>
 
 .ethbars {
-  transform: translate(25%, 0)
+  transform: translate(22.5%, 0)
 }
 
 .eth-txt {
   color: #ffffff;
-  transform: translate(22.5%, -2%);
+  transform: translate(19%, -2%);
   font-family: sans-serif;
 }
 
 svg {
-  width: 80vw;
-  height: 60vh;
+  width: 90vw;
+  height: 70vh;
 }
 
 @media screen and (max-width: 780px) {

@@ -48,12 +48,12 @@
 <style>
 
   .bars {
-    transform: translate(10%, 0)
+    transform: translate(0%, 0)
   }
 
   .chart-txt {
     fill: #ffffff;
-    transform: translate(10%, 1%);
+    transform: translate(0%, 1%);
     font-family: sans-serif;
   }
 
@@ -71,7 +71,7 @@
       transform: translate(5%, 0%) scale(0.5);
     }
     svg {
-      width: 100vw;
+      width: 90vw;
       height: 50vh;
     }
 
