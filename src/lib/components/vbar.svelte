@@ -62,17 +62,36 @@
     height: 90vh;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 780px) {
     .bars {
       transform: translate(5%, 0%) scale(0.5);
     }
 
     .chart-txt {
-      transform: translate(5%, 0%) scale(0.5);
+      transform: translate(5%, 1%) scale(0.5);
     }
     svg {
       width: 90vw;
       height: 50vh;
+    }
+
+  }
+
+  @media screen and (max-width: 400px) {
+    .cbars {
+      transform: translate(25%, 0%) scale(0.5);
+    }
+    .chart-txt {
+      transform: translate(25%, 1%) scale(0.5);
+    }
+
+    svg {
+      width: 100vw;
+      height: 50vh;
+    }
+
+    p {
+      font-size: 1rem;
     }
 
   }

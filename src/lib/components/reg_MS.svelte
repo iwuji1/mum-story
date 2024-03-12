@@ -80,9 +80,12 @@ let widowedp = {name:"Widowed", data:rmdat.filter(d => d["Parent Marital Status"
   @media screen and (max-width: 780px) {
 
     #ctry {
-      transform: translate(15%, 40%) scale(.4);
+      transform: translate(15%, 0%) scale(.6);
     }
 
+    #bpath {
+      transform: translate(15%, 0%) scale(.6);
+    }
     svg {
       width: 100vw;
       height: 50vh;

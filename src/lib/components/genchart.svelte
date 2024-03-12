@@ -63,10 +63,6 @@ svg {
   .gen-txt {
     transform: translate(10%, 30%) scale(0.5);
   }
-  svg {
-    width: 100vw;
-    height: 50vh;
-  }
 
   p {
     font-size: 1rem;

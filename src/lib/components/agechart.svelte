@@ -48,7 +48,7 @@ svg {
 @media screen and (max-width: 780px) {
 
   svg {
-    width: 80vw;
+    width: 100vw;
     height: 50vh;
   }
 
@@ -63,7 +63,7 @@ svg {
   .ageaxis {
     stroke: #ffffff;
     stroke-width: 2px;
-    transform: translate(6%, -6%);
+    transform: translate(35.5%, -2%);
   }
 
   p {
@@ -85,6 +85,12 @@ svg {
 
   .age-txt {
     transform: translate(15%, 5%) scale(0.5);
+  }
+
+  .ageaxis {
+    stroke: #ffffff;
+    stroke-width: 2px;
+    transform: translate(16.5%, 0%);
   }
 
   p {

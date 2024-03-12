@@ -82,8 +82,16 @@
   }
 
   @media screen and (max-width: 400px) {
+    .cbars {
+      transform: translate(25%, 0%) scale(0.5);
+    }
     .chart-txt {
-      transform: translate(10%, -5%) scale(0.5);
+      transform: translate(25%, 0%) scale(0.5);
+    }
+
+    svg {
+      width: 100vw;
+      height: 50vh;
     }
 
     p {

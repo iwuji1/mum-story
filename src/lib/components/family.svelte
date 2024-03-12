@@ -118,7 +118,7 @@
 
   p {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: sans-serif
   }
 
@@ -163,7 +163,7 @@
 
     h1 {
       font-size: 5em;
-      margin: 20%;
+      margin: 10%;
     }
 
     svg {
@@ -176,7 +176,7 @@
     }
 
     p {
-      font-size: 1.5rem;
+      font-size: 1rem;
       margin: auto;
     }
 }
