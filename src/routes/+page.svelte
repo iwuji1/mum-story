@@ -22,7 +22,7 @@
   onMount(async () => {
 
     try {
-      const response = await fetch('http://localhost:8888/.netlify/functions/queryResults');
+      const response = await fetch('/.netlify/functions/queryResults');
       if (!response.ok) {
           throw new Error('Network response was not ok');
         }
