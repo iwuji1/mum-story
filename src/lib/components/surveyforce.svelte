@@ -76,7 +76,7 @@ text {
   }
 
   text {
-    transform: translate(0%, 0%) scale(0.5)
+    transform: translate(-5%, 0%) scale(0.5)
   }
 
 }
@@ -85,7 +85,7 @@ text {
 
   svg {
     width: 100vw;
-    height: 70vh;
+    height: 50vh;
   }
 
   text {

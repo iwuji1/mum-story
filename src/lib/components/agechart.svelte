@@ -90,7 +90,7 @@ svg {
   .ageaxis {
     stroke: #ffffff;
     stroke-width: 2px;
-    transform: translate(16.5%, 0%);
+    transform: translate(7%, -7%);
   }
 
   p {

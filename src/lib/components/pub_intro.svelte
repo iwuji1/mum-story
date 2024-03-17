@@ -51,39 +51,19 @@
     });
 
     let scrollTween = gsap.to(sections, {
-      xPercent: -105 * (sections.length - 1),
+      xPercent: -100 * (sections.length - 1),
       ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
         trigger: ".chart-container",
         pin: true,
-        scrub: 0.1,
-        //snap: directionalSnap(1 / (sections.length - 1)),
-        end: "+=4000"
+        scrub: 1,
+        end: "+=5000"
       }
   });
 
-  ScrollTrigger.create({
-    trigger: ".feelsforce",
-    containerAnimation: scrollTween,
-    start: "center 80%",
-    end: "center 20%",
-    onEnter: () => {
-      forcepower=true;
-    },
-    onLeave: () => {
-      forcepower=false;
-    },
-    onEnterBack: () => {
-      forcepower=true;
-    },
-    onLeaveBack: () => {
-      forcepower=false;
-    },
-  });
-
-  let ethsectionscroll = gsap.timeline({
+  let regsectionscroll = gsap.timeline({
     scrollTrigger: {
-      trigger: ".demobar",
+      trigger: ".RM_map",
       containerAnimation: scrollTween,
       start: "center 80%",
       end: "center 20%",
@@ -92,6 +72,16 @@
     }
   })
 
+  let ethsectionscroll = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".demobar",
+      containerAnimation: scrollTween,
+      start: "center 80%",
+      end: "center 20%",
+      toggleActions: "play complete pause reset",
+      id: "2",
+    }
+  })
 
   ethsectionscroll.from("rect.ethbars", {
     scaleY:0,
@@ -112,7 +102,7 @@
       start: "center 80%",
       end: "center 20%",
       toggleActions: "play complete pause reset",
-      id: "2",
+      id: "3",
     }
   })
 
@@ -127,7 +117,7 @@
     delay: -2,
     ease: "power2"
   })
-  .from("text.age-txt", {
+  .from("foreignObject.age-txt", {
     opacity:0,
     ease: "power2"
   })
@@ -139,7 +129,7 @@
       start: "center 80%",
       end: "center 20%",
       toggleActions: "play complete pause reset",
-      id: "3",
+      id: "4",
     }
   })
 
@@ -160,18 +150,28 @@
     ease:"power2"
   });
 
-  let regsectionscroll = gsap.timeline({
+  let feelsectionscroll = gsap.timeline({
     scrollTrigger: {
-      trigger: ".RM_map",
+      trigger: ".feelsforce",
       containerAnimation: scrollTween,
       start: "center 80%",
       end: "center 20%",
       toggleActions: "play complete pause reset",
-      id: "4",
+      id: "5",
+      onEnter: () => {
+        forcepower=true;
+      },
+      onLeave: () => {
+        forcepower=false;
+      },
+      onEnterBack: () => {
+        forcepower=true;
+      },
+      onLeaveBack: () => {
+        forcepower=false;
+      }
     }
   })
-
-
   })
 
 
@@ -232,10 +232,6 @@
    margin: 0%;
  }
 
- .chart-block p {
-
- }
-
  .text-block {
    display: flex;
    padding: 20px 40px 0px;
@@ -259,11 +255,6 @@
 
  .viz-text {
 
- }
-
- .viz-img {
-   max-width: 80vw;
-   height: auto;
  }
 
 </style>
@@ -296,7 +287,6 @@
       <section class= "intro chart-block">
         <h1 class="anim">Breaking down the audience by location we see:</h1>
         <RegMS rmdat={reg_Mstat}/>
-        <SF data={wordat} np={forcepower}/>
       </section>
       <section class="c1 chart-block">
         <h1 class="anim">Breaking down the responses by ethnic background we see:</h1>

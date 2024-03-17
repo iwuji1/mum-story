@@ -50,6 +50,11 @@ svg {
 }
 
 @media screen and (max-width: 780px) {
+  svg {
+    width: 100vw;
+    height: 50vh;
+  }
+
   #p45 {
     fill: #ff2ac4;
     transform: translate(3%, 0%) scale(1.8)
@@ -71,6 +76,11 @@ svg {
 }
 
 @media screen and (max-width: 400px) {
+
+  svg {
+    width: 100vw;
+    height: 50vh;
+  }
 
   #p45 {
     fill: #ff2ac4;

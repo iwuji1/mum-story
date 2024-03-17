@@ -86,7 +86,7 @@
       transform: translate(25%, 0%) scale(0.5);
     }
     .chart-txt {
-      transform: translate(25%, 0%) scale(0.5);
+      transform: translate(10%, -4%) scale(0.5);
     }
 
     svg {

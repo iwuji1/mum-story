@@ -11,7 +11,7 @@ import { fly, fade } from "svelte/transition"
     display: flex;
     position: absolute;
     pointer-events: none;
-    width: 25%;
+    width: 45%;
     transition: top 300ms ease, left 300ms ease;
     top: 40%;
     left: 21%;
@@ -28,5 +28,5 @@ import { fly, fade } from "svelte/transition"
 <div class="tooltip"
   in:fly={{ y: 10, duration: 200, delay: 200 }}
   out:fade>
-  <p>{data["Lesson Learned"]}</p>
+  <em><p>{data["Lesson Learned"]}</p></em>
 </div>

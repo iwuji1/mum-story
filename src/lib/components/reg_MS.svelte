@@ -19,8 +19,10 @@ import { geoOrthographic, geoPath, geoNaturalEarth1, geoMercator} from "d3-geo";
 import * as d3_composite from "d3-composite-projections";
 
 let conts = continents.features;
+//getting rid of antartica from the continent data
+let relconts = conts.filter(d => d.properties.CONTINENT != "Antarctica")
 
-let width;
+let width = 800;
 let height = 400;
 let hovered;
 let hoveredContinent;
@@ -43,14 +45,10 @@ $: cScale2 = d3.scaleOrdinal().domain([0, max(rmdat, function(d) {return d.RegFr
 $: filtered = marriedp
 
 
-
-
-
 let divorcedp = {name:"Divorced", data:rmdat.filter(d => d["Parent Marital Status"] === "Divorced")}
 let marriedp = {name:"Married", data:rmdat.filter(d => d["Parent Marital Status"] === "Married")}
 let seperatedp = {name:"Seperated", data:rmdat.filter(d => d["Parent Marital Status"] === "Seperated")}
 let widowedp = {name:"Widowed", data:rmdat.filter(d => d["Parent Marital Status"] === "Widowed")}
-
 
 
 </script>
@@ -128,16 +126,14 @@ let widowedp = {name:"Widowed", data:rmdat.filter(d => d["Parent Marital Status"
 <h1>Map of recipient location, who's parent's marital status is {filtered.name}</h1>
 
   <svg class="RM_map">
-    {#each conts as country}
-      {#if country.properties.CONTINENT != "Antarctica"}
+    {#each relconts as country}
         <path d={path(country)}
         id="bpath"
         fill="#ff4f1d"
         stroke="white" />
-      {/if}
     {/each}
     {#each filtered.data as dat}
-      {#each conts as country}
+      {#each relconts as country}
         {#if dat.Region == country.properties.CONTINENT}
           <path d={path(country)}
           id="ctry"
