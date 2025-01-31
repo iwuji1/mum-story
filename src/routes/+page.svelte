@@ -6,11 +6,13 @@
 
   import WMimg from '$lib/components/wm_img.svelte';
   import Stars from '$lib/components/star.svelte';
-  import Poem from '$lib/components/poem.svelte';
+  import PoemHor from '$lib/components/poem_2.svelte';
   import BHM from '$lib/components/BHM_intro.svelte';
   import She from '$lib/components/Sheroes.svelte';
   import Fam from '$lib/components/family.svelte';
+  import Dots from '$lib/components/points.svelte';
   import Vbar from '$lib/components/vbar.svelte';
+  import Scrolldem from '$lib/components/demo_break.svelte';
   import Pintro from '$lib/components/pub_intro.svelte';
   import Comments from '$lib/components/comment_map.svelte';
   import Deskimg from '$lib/assets/Mothers_Desktop.png';
@@ -35,6 +37,22 @@
     gsap.registerPlugin(ScrollTrigger);
 
   })
+  // onMount(async () => {
+
+  //   try {
+  //     const response = await fetch('https://toourmothers.obinnaiwuji.com/.netlify/functions/queryResults');
+  //     if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       data = await response.json();
+
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  // })
 
 </script>
 
@@ -179,13 +197,12 @@ img {
       <p>Reflecting on Motherhood for Black History Month 2024</p>
     </div>
   </div>
-
   <BHM />
   <She />
   <Fam />
-  <Poem />
+  <PoemHor />
   {#if data}
-    <Pintro data={data} />
+    <Scrolldem data={data} />
     <div class="end">
     <Comments data={data}/>
     </div>

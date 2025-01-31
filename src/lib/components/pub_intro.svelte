@@ -263,7 +263,8 @@
 
   <div class= "text-block">
     <h1>To Our Sisters</h1>
-    <p>This is an opporunity to shout out the amazing work done by women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children's persepective. When doing this I did involve all age groups as I believe we are all a child to someone, but was also curious to see how view points differ as you grow up and live in different seasons of your life</p>
+    <p>This is an opporunity to shout out the amazing work done by women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children's persepective. <br>
+      When doing this I did involve all age groups as I believe we are all a child to someone, but was also curious to see how view points differ as you grow up and live in different seasons of your life</p>
   </div>
   <div class= "text-block count">
     <p>So I surveyed</p>
@@ -272,7 +273,7 @@
     <p>Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p>
     <p>On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life </p>
     <p>Write a quick lesson learned from your mum</p>
-    <p>
+
   </div>
   <div class= "text-block">
     <div class="viz-text">
