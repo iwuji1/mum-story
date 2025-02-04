@@ -123,7 +123,7 @@
   }
 
   span.highlight {
-    background-image: linear-gradient(yellow, yellow);
+    background-image: linear-gradient(#ffd502, #ffd502);
     background-repeat: no-repeat;
     color: #000000;
   }

@@ -70,7 +70,7 @@
   justify-content: flex-end;
   margin: auto;
   padding: 0%;
-  background-image: url('$lib/assets/Mothers_Desktop_Desktop.png');
+  background-image: url('$lib/assets/Poem Desktop.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -85,11 +85,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50vw;
+  width: 100vw;
 }
 
 .title-text h1 {
   font-family: sans-serif;
+  text-align: center;
   font-size: 10em;
   margin: 0%;
   color: #ffd502
@@ -97,6 +98,7 @@
 
 .title-text p {
   font-family: sans-serif;
+  text-align: center;
   font-size: 2em;
   color: #ffffff;
 }
@@ -126,7 +128,7 @@ img {
 
 @media screen and (max-width: 780px) {
   .intro-container {
-    background-image: url('$lib/assets/Mothers_tablet.png');
+    background-image: url('$lib/assets/Poem tablet.png');
   }
 
   .end-container {
@@ -157,7 +159,7 @@ img {
 
 @media screen and (max-width: 400px) {
   .intro-container {
-    background-image: url('$lib/assets/Mothers_mobile.png');
+    background-image: url('$lib/assets/Poem phone.png');
   }
 
   .title-text {

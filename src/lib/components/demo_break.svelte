@@ -482,6 +482,44 @@
             scrub: true
         });
 
+        var tl2 = gsap.timeline({
+          scrollTrigger: {
+          trigger: ".cnt",
+          start: 'top 80%',
+          toggleActions: 'restart pause resume reverse'
+        },
+      });
+
+      gsap.utils.toArray('.cnt').forEach(function (el) {
+      var target = { val: 0 };
+      let br = document.createElement('br');
+      tl2.to(target, {
+        val: el.getAttribute('data-number'),
+        duration: 1,
+        onUpdate: function () {
+          el.innerText = Math.floor(target.val.toFixed(1));
+        },
+      });
+
+      let tl3 = gsap.timeline({
+        scrollTrigger: {
+        trigger: ".p1",
+        start: "top top",
+        toggleActions: 'restart pause resume reverse'
+      }
+    })
+
+    tl3.to(".cnt", {
+        opacity: 0,
+        y:0,
+        ease: "power2"
+      })
+
+
+    });
+
+
+
         contents.forEach((unit, i) => {
             let headline = unit.querySelector("h1");
             ScrollTrigger.create({
@@ -507,18 +545,17 @@
 
 .chart-gallery {
     display: flex;
+    font-family: sans-serif;
   }
 
   .chart-gallery h1 {
     font-size:clamp(5em, 4vw, 6em);
-    font-family: sans-serif;
-    color: white;
+    color: #ffd502;
   }
 
   .chart-gallery p {
     font-size:clamp(1em, 1.5vw, 2em);
     line-height:1.4;
-    font-family: sans-serif;
     color: white;
   }
 
@@ -556,6 +593,7 @@
     position:relative;
     overflow:hidden;
     justify-content: center;
+    transform: translate(0, 20%);
   }
 
   .gallerychart {
@@ -568,8 +606,31 @@
     height:100vh;
   }
 
+  .cnt {
+    text-align: center;
+    color: #ffffff;
+    font-size: 5rem;
+  }
+
   .text-block {
     position: absolute;
+    top: 20%;
+    font-size: 10rem;
+    font-weight: bolder;
+    left: 17%;
+  }
+
+  ul.questions {
+    list-style-position: outside;
+    font-style: italic;
+    color: #ffd502;
+
+  }
+
+  span.highlight {
+    background-image: linear-gradient(#ffd502, #ffd502);
+    background-repeat: no-repeat;
+    color: #000000;
   }
 
 </style>
@@ -582,30 +643,31 @@
           <p>This is an opporunity to shout out the amazing work done by women in the community, but also a chance hear from real people the how the role of a mother reflects in the lives of their children...from the children's persepective. <br><br>
             When doing this I did involve all age groups as I believe we are all a child to someone, but was also curious to see how view points differ as you grow up and live in different seasons of your life</p>
             <p>So I surveyed</p>
-          <h2 class="cnt" data-number={count}> 0 people</h2>
+          <h2 class="cnt" data-number={count}> 0 </h2><p>People</p>
           <p>All in different communities from both single parent and couple parent house holds to see the impact of their mother in their life. I asked them 3 questions:</p>
-          <p>Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p>
-          <p>On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life </p>
-          <p>Write a quick lesson learned from your mum</p>
-  
+          <ul class="questions">
+          <li><p>Using words appointed to being a mother from the internet, what 3 words best describle your mother?</p></li>
+          <li><p>On a scale of 1(negative) - 5(positive), how would rate the impact of your mum in your life </p></li>
+          <li><p>Write a quick lesson learned from your mum</p></li>
+        </ul>
           <h2>Breaking down the respondents</h2>
           <p>Before we get into what the people are saying it's important to get a good idea about who is actually responding here to give you a better context to our responses</p>
         </div>
-        <div class="desrciptContentSection">
+        <div class="desrciptContentSection p1">
           <h1>Breaking down the audience by location we see:</h1>
-          <p>Red is a color often associated with strong emotions such as passion, love, and anger. It's a bold and attention-grabbing color that can evoke feelings of excitement, warmth, and energy.</p>
+          <p>The vast majority of respondents were from Europe, in fact almost 70% of the sample come from Europe. With the next largest source of represenation coming from Africa. Not surprising considering my own personal background!</p>
         </div>
-        <div class="desrciptContentSection">
+        <div class="desrciptContentSection p2">
           <h1>Breaking down the responses by ethnic background we see:</h1>
-          <p>Red is a color often associated with strong emotions such as passion, love, and anger. It's a bold and attention-grabbing color that can evoke feelings of excitement, warmth, and energy.</p>
+          <p>Breaking down the respondents by Ethnic Background (a politically charged term I know, but work with me!). My respondents tended to be from South Asian and African/Black Briitsh backgrounds. Of course wew could defintely breakdown the demographics further down here. But this is great to know as when you scroll down to the personal lessons learnt from mothers you'll find that alot of the comments, english and non-english were very much influenced by people's cultural backgrounds</p>
         </div>
-        <div class="desrciptContentSection">
+        <div class="desrciptContentSection p3">
           <h1>Breaking down the responses by age we see:</h1>
-          <p>Red is a color often associated with strong emotions such as passion, love, and anger. It's a bold and attention-grabbing color that can evoke feelings of excitement, warmth, and energy.</p>
+          <p>This was my personal biggest challenge. I wanted to get respondents from different age groups to better understand how views might change depending on generation. I'm happy/ curious to say though, truly no matter how old you are, you are a child to somoen. And the comments reflect this!</p>
         </div>
-        <div class="desrciptContentSection">
+        <div class="desrciptContentSection p4">
           <h1>Breaking down the response by gender we see:</h1>
-          <p>Red is a color often associated with strong emotions such as passion, love, and anger. It's a bold and attention-grabbing color that can evoke feelings of excitement, warmth, and energy.</p>
+          <p> Two Thirds of respondents were female with other portion identifying as male, there were no respondents who identified by other gender categories, hence the amount is seen as zero (and excluded)</p>
         </div>
       </div>
     </div>
@@ -613,6 +675,7 @@
       <div class="gallerycharts">
         <div class="gallerychart waffle"></div>
         <div class="gallerylegend"></div>
+        <div class="text-block cnt" data-number={count}> 0 </div>
       </div>
     </div>
   

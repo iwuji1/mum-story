@@ -173,6 +173,14 @@ onMount(() => {
     margin: auto
   }
 
+  span.highlight {
+    background-image: linear-gradient(#ffd502, #ffd502);
+    background-repeat: no-repeat;
+    color: #000000;
+  }
+
+  
+
   @media screen and (max-width: 780px) {
 
     .lesson-chart .wrapper {
@@ -316,7 +324,7 @@ onMount(() => {
       </div>
 
       <div class="step" id="step-4">
-        <p class="step-content">If you hover over the circles to the left, you'll see someone of the many lessons from those who were survey for the story, see if any of the lessons remind you of your mum, because many curtainly reminded me of mine</p>
+        <p class="step-content">If you <span class="highlight">hover over the heads to the left</span>, you'll see someone of the many lessons from those who were survey for the story, see if any of the lessons remind you of your mum, because many curtainly reminded me of mine</p>
         {#if hovered}
           <Tooltip data={hovered}/>
         {/if}

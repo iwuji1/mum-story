@@ -9,24 +9,37 @@ import { fly, fade } from "svelte/transition"
 
   .tooltip {
     display: flex;
+    flex-direction: column;
     position: absolute;
     pointer-events: none;
-    width: 45%;
+    width: 50%;
     transition: top 300ms ease, left 300ms ease;
     top: 40%;
     left: 21%;
     text-align: center;
+    background-color: #ffd502;
+    border-radius: 25px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 5px #238C33;
   }
 
-  p {
+  .lesson {
     font-family: sans-serif;
+    font-size: 2em;
+    color: #D9043D;
+    font-weight: 800;
+  }
+
+  .signiture {
+    font-family: 'Staatliches', cursive;
     font-size: 1.5em;
-    color: #ffffff;
   }
 </style>
 
 <div class="tooltip"
   in:fly={{ y: 10, duration: 200, delay: 200 }}
   out:fade>
-  <em><p>{data["Lesson Learned"]}</p></em>
+  <em><p class="lesson">{data["Lesson Learned"]}</p></em>
+  <p class="signiture">- Mum</p>
 </div>
